@@ -54,50 +54,45 @@ class _HomePageState extends State<HomePage> {
         ),
         child: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: hPadding*2),
+            padding: const EdgeInsets.symmetric(
+                horizontal: hPadding * 2, vertical: vPadding * 2),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 SvgPicture.asset(
                   'assets/icons/logo.svg',
                   semanticsLabel: 'Logo TicTic',
-                  width: 150,
+                  height: MediaQuery.of(context).size.height * 0.16,
                 ),
-                const SizedBox(
-                  height: vPadding * 9,
-                ),
-                TextSlider(),
-                const SizedBox(
-                  height: vPadding * 9,
-                ),
+                const Flexible(flex: 1, child: TextSlider()),
                 MainButton(
                     onPressed: () => {debugPrint('Continuer sans compte')},
                     text: 'Continuer sans compte'),
-                const SizedBox(
-                  height: vPadding * 2,
-                ),
                 const TextDivider(),
-                const SizedBox(
-                  height: vPadding * 2,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    MainButton(
-                      onPressed: () => {debugPrint('Je me connecte')},
-                      text: 'Je me connecte',
-                      isSeedColor: false,
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: vPadding),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        MainButton(
+                          onPressed: () => {debugPrint('Je me connecte')},
+                          text: 'Je me connecte',
+                          isSeedColor: false,
+                        ),
+                        SizedBox(
+                          width: hPadding,
+                        ),
+                        MainButton(
+                          onPressed: () => {debugPrint('Créer mon compte')},
+                          text: 'Créer mon compte',
+                          isSeedColor: false,
+                        )
+                      ],
                     ),
-                    MainButton(
-                      onPressed: () => {debugPrint('Créer mon compte')},
-                      text: 'Créer mon compte',
-                      isSeedColor: false,
-                    )
-                  ],
-                ),
-                const SizedBox(
-                  height: vPadding * 2,
-                ),
+                  ),
+                )
               ],
             ),
           ),

@@ -8,20 +8,23 @@ class TextDivider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
-      children: [
-        LineText(),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: hPadding),
-          child: Text('Ou',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w500,
-              )),
-        ),
-        LineText(),
-      ],
+    return const Padding(
+      padding: EdgeInsets.symmetric(vertical: vPadding * 2),
+      child: Row(
+        children: [
+          LineText(),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: hPadding),
+            child: Text('Ou',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500,
+                )),
+          ),
+          LineText(),
+        ],
+      ),
     );
   }
 }

@@ -19,11 +19,12 @@ class _TextSliderState extends State<TextSlider> {
   ];
 
   int _index = 0;
-  PageController _pageController = PageController(viewportFraction: 1);
+  final PageController _pageController = PageController(viewportFraction: 1);
 
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         SizedBox(
             height: 60,
