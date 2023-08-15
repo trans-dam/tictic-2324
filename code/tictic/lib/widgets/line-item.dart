@@ -4,14 +4,15 @@ import 'package:tictic/style/others.dart';
 
 class LineItem extends StatelessWidget {
   final isActivated;
+  final double width;
 
-  const LineItem({super.key, this.isActivated = false});
+  LineItem({super.key, this.isActivated = false, required this.width});
 
   @override
   Widget build(BuildContext context) {
     return Container(
         height: 3,
-        width: 57,
+        width: width,
         decoration: BoxDecoration(
           color: isActivated ? seedColor : backgroundColor,
           borderRadius: BorderRadius.circular(10),

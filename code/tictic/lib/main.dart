@@ -54,7 +54,7 @@ class _HomePageState extends State<HomePage> {
         ),
         child: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: hPadding),
+            padding: const EdgeInsets.symmetric(horizontal: hPadding*2),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
@@ -66,7 +66,7 @@ class _HomePageState extends State<HomePage> {
                 const SizedBox(
                   height: vPadding * 9,
                 ),
-                const TextSlider(),
+                TextSlider(),
                 const SizedBox(
                   height: vPadding * 9,
                 ),
