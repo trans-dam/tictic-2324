@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:tictic/screens/welcome_screen.dart';
 import 'package:tictic/style/colors.dart';
-import 'package:tictic/widgets/main_button.dart';
-import 'package:tictic/style/spacings.dart';
-import 'package:tictic/widgets/text-diver.dart';
-import 'package:tictic/widgets/text-slider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,75 +25,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         fontFamily: 'Avenir Next',
       ),
-      home: const HomePage(),
-    );
-  }
-}
-
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
-
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("assets/img/back1.png"),
-            fit: BoxFit.cover,
-          ),
-        ),
-        child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(
-                horizontal: hPadding * 2, vertical: vPadding * 2),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                SvgPicture.asset(
-                  'assets/icons/logo.svg',
-                  semanticsLabel: 'Logo TicTic',
-                  height: MediaQuery.of(context).size.height * 0.16,
-                ),
-                const Flexible(flex: 1, child: TextSlider()),
-                MainButton(
-                    onPressed: () => {debugPrint('Continuer sans compte')},
-                    text: 'Continuer sans compte'),
-                const TextDivider(),
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: vPadding),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        MainButton(
-                          onPressed: () => {debugPrint('Je me connecte')},
-                          text: 'Je me connecte',
-                          isSeedColor: false,
-                        ),
-                        SizedBox(
-                          width: hPadding,
-                        ),
-                        MainButton(
-                          onPressed: () => {debugPrint('Créer mon compte')},
-                          text: 'Créer mon compte',
-                          isSeedColor: false,
-                        )
-                      ],
-                    ),
-                  ),
-                )
-              ],
-            ),
-          ),
-        ),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      home: const WelcomeScreen(),
     );
   }
 }
