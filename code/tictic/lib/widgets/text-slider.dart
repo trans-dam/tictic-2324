@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../style/font.dart';
-import '../style/spacings.dart';
 import 'line-item.dart';
 
 class TextSlider extends StatefulWidget {
@@ -20,6 +19,7 @@ class _TextSliderState extends State<TextSlider> {
   ];
 
   int _index = 0;
+  PageController _pageController = PageController(viewportFraction: 1);
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class _TextSliderState extends State<TextSlider> {
             height: 60,
             child: PageView.builder(
               scrollDirection: Axis.horizontal,
-              controller: PageController(viewportFraction: 1),
+              controller: _pageController,
               itemCount: items.length,
               onPageChanged: (index) {
                 setState(() {
@@ -44,16 +44,25 @@ class _TextSliderState extends State<TextSlider> {
                 );
               },
             )),
-        const SizedBox(
-          height: vPadding * 1.5,
-        ),
         Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: items.map((e) {
               var currentIndex = items.indexOf(e);
-              return LineItem(
-                width: MediaQuery.of(context).size.width / (2 * items.length),
-                isActivated: currentIndex == _index,
+              return GestureDetector(
+                behavior: HitTestBehavior.opaque,
+                onTap: () {
+                  print(currentIndex);
+                  _pageController.animateToPage(currentIndex,
+                      duration: const Duration(milliseconds: 250),
+                      curve: Curves.easeInOut);
+                  setState(() {
+                    _index = currentIndex;
+                  });
+                },
+                child: LineItem(
+                  width: MediaQuery.of(context).size.width / (2 * items.length),
+                  isActivated: currentIndex == _index,
+                ),
               );
             }).toList())
       ],
