@@ -3,11 +3,12 @@ import 'package:tictic/style/colors.dart';
 import 'package:tictic/style/others.dart';
 import 'package:tictic/style/spacings.dart';
 
+@immutable
 class LineItem extends StatelessWidget {
-  final isActivated;
+  final bool isActivated;
   final double width;
 
-  LineItem({super.key, this.isActivated = false, required this.width});
+  const LineItem({super.key, this.isActivated = false, required this.width});
 
   @override
   Widget build(BuildContext context) {

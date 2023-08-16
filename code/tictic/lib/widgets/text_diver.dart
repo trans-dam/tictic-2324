@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tictic/widgets/line-text.dart';
+import 'package:tictic/widgets/line_text.dart';
 
 import '../style/spacings.dart';
 

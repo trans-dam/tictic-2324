@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tictic/screens/welcome_screen.dart';
+import 'package:tictic/routes.dart';
 import 'package:tictic/style/colors.dart';
 
 void main() {
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         fontFamily: 'Avenir Next',
       ),
-      home: const WelcomeScreen(),
+      routes: router,
     );
   }
 }
