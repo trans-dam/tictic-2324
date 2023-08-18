@@ -31,11 +31,20 @@ const kHintStyle = TextStyle(
   fontStyle: FontStyle.italic,
 );
 const kTitleSideBar = TextStyle(
- fontWeight: FontWeight.w600,
+  fontWeight: FontWeight.w600,
   fontSize: 27,
 );
 const kTextSideBar = TextStyle(
- fontWeight: FontWeight.w600,
+  fontWeight: FontWeight.w600,
+  fontSize: 20,
+);
+const kTitleHome = TextStyle(
+  fontWeight: FontWeight.w600,
+  fontSize: 27,
+);
+const kSubTitleHome = TextStyle(
+  fontWeight: FontWeight.w500,
+  fontStyle: FontStyle.italic,
   fontSize: 20,
 );
 

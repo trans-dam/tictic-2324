@@ -16,7 +16,7 @@ const String kAddPersonRoute = '/add_person';
 const String kAddTransactionRoute = '/add_transaction';
 
 Map<String, WidgetBuilder> router = {
-  kHomeRoute: (context) => const HomeScreen(),
+  kHomeRoute: (context) => HomeScreen(),
   kWelcomeRoute: (context) => const WelcomeScreen(),
   kLoginRoute: (context) => LoginScreen(),
   kRegisterRoute: (context) => RegisterScreen(),
