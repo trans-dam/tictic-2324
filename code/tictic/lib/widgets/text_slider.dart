@@ -50,7 +50,7 @@ class _TextSliderState extends State<TextSlider> {
               },
             )),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: hPadding * 2),
+          padding: const EdgeInsets.symmetric(horizontal: hPadding * 2),
           child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: items.map((e) {

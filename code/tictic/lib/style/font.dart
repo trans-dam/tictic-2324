@@ -11,3 +11,6 @@ const TextStyle italicText = TextStyle(
 
 const buttonStyle = TextStyle(
     fontSize: 16, fontWeight: FontWeight.w600, color: backgroundColor);
+
+const kLabelStyle =
+    TextStyle(color: seedColor, fontWeight: FontWeight.w500, fontSize: 18);

@@ -10,5 +10,6 @@ const String kError = '/error';
 
 Map<String, WidgetBuilder> router = {
   kHomeRoute: (context) => const WelcomeScreen(),
-  kLoginRoute: (context) => const LoginScreen(),
+  kLoginRoute: (context) => LoginScreen(),
+  //kRegisterRoute: (context) => const RegisterScreen(),
 };

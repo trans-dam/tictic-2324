@@ -1,6 +1,7 @@
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:tictic/screens/welcome_template_screen.dart';
-import 'package:tictic/widgets/form/password-input.dart';
+import 'package:tictic/widgets/form/password_input.dart';
 import 'package:tictic/widgets/form/text_input.dart';
 
 import '../routes.dart';
@@ -9,7 +10,9 @@ import '../style/spacings.dart';
 import '../widgets/main_button.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+  final _loginFormKey = GlobalKey<FormState>();
+
+  LoginScreen({super.key});
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -22,20 +25,34 @@ class _LoginScreenState extends State<LoginScreen> {
         flexibleContent: Padding(
           padding: const EdgeInsets.symmetric(horizontal: hPadding * 2),
           child: Form(
+            key: widget._loginFormKey,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const TextInput(
-                    prefixIcon: Icons.mail,
-                    hintText: 'exemple@mail.com',
-                    labelText: 'Adresse mail',
-                    keyboardType: TextInputType.emailAddress),
+                TextInput(
+                  prefixIcon: Icons.mail,
+                  hintText: 'exemple@mail.com',
+                  labelText: 'Adresse mail',
+                  keyboardType: TextInputType.emailAddress,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Veuillez entrer une adresse mail';
+                    } else if (!EmailValidator.validate(value)) {
+                      return 'L’adresse mail n’est pas valide';
+                    }
+                    return null;
+                  },
+                ),
                 const PasswordInput(),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     MainButton(
-                        onPressed: () => {debugPrint('Se connecter')},
+                        onPressed: () => {
+                              if (widget._loginFormKey.currentState != null &&
+                                  widget._loginFormKey.currentState!.validate())
+                                {Navigator.popAndPushNamed(context, kHomeRoute)}
+                            },
                         text: 'Je me connecte'),
                   ],
                 ),
