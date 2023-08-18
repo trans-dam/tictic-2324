@@ -8,13 +8,17 @@ class TextInput extends StatelessWidget {
   final String hintText;
   final String labelText;
   final bool obscureText;
+  final TextInputType keyboardType;
+  final Widget? suffixIcon;
 
   const TextInput(
       {super.key,
       required this.prefixIcon,
       required this.hintText,
       required this.labelText,
-      this.obscureText = false});
+      this.keyboardType = TextInputType.text,
+      this.obscureText = false,
+      this.suffixIcon});
 
   @override
   Widget build(BuildContext context) {
@@ -30,12 +34,14 @@ class TextInput extends StatelessWidget {
           ),
         ),
         TextFormField(
+          keyboardType: keyboardType,
           obscureText: obscureText,
           decoration: InputDecoration(
             isDense: true,
             contentPadding:
                 const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
             prefixIcon: Icon(prefixIcon),
+            suffixIcon: suffixIcon,
             border: const OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(30)),
             ),
