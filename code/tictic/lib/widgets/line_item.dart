@@ -13,15 +13,15 @@ class LineItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: vPadding*2),
+      padding: const EdgeInsets.symmetric(vertical: kVerticalPadding*2),
       child: Container(
           height: 3,
           width: width,
           decoration: BoxDecoration(
-            color: isActivated ? seedColor : backgroundColor,
+            color: isActivated ? kMainColor : kBackgroundColor,
             borderRadius: BorderRadius.circular(10),
             boxShadow: [
-              shadow,
+              kShadow,
             ],
           )),
     );

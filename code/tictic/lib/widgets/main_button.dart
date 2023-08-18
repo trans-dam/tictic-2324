@@ -21,18 +21,18 @@ class MainButton extends StatelessWidget {
       onTap: onPressed,
       child: Container(
         padding: const EdgeInsets.symmetric(
-            vertical: vPadding / 2, horizontal: hPadding),
+            vertical: kVerticalPadding / 2, horizontal: kHorizontalPadding),
         decoration: BoxDecoration(
-          color: isSeedColor ? seedColor : tertiaryColor,
+          color: isSeedColor ? kMainColor : kTertiaryColor,
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
-            shadow,
+            kShadow,
           ],
         ),
         child: Text(
           text,
           style: TextStyle(
-              color: isSeedColor ? backgroundColor : seedColor,
+              color: isSeedColor ? kBackgroundColor : kMainColor,
               fontSize: 16,
               fontWeight: FontWeight.w500),
         ),

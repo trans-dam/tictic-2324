@@ -12,7 +12,7 @@ class LineText extends StatelessWidget {
       child: Container(
           height: 1,
           decoration: const BoxDecoration(
-            color: seedColor,
+            color: kMainColor,
           )),
     );
   }

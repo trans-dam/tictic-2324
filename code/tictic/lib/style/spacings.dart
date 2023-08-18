@@ -1,2 +1,2 @@
-const hPadding = 16.0;
-const vPadding = 16.0;
+const kHorizontalPadding = 16.0;
+const kVerticalPadding = 16.0;

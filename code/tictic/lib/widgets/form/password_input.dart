@@ -22,8 +22,16 @@ class _PasswordInputState extends State<PasswordInput> {
       labelText: 'Mot de passe',
       obscureText: _isObscure,
       keyboardType: TextInputType.visiblePassword,
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return 'Le mot de passe ne peut pas être vide';
+        } else if (value.length < 9) {
+          return 'Le mot de passe doit contenir au moins 8 caractères';
+        }
+        return null;
+      },
       suffixIcon: GestureDetector(
-        child: Icon(_suffixIcon, color: seedColor),
+        child: Icon(_suffixIcon, color: kMainColor),
         onTap: () {
           setState(() {
             _isObscure = !_isObscure;
@@ -33,7 +41,6 @@ class _PasswordInputState extends State<PasswordInput> {
               _suffixIcon = Icons.visibility;
             }
           });
-          debugPrint('tapped');
         },
       ),
     );

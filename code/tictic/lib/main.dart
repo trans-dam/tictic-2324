@@ -16,11 +16,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-          seedColor: seedColor,
-          secondary: secondaryColor,
-          tertiary: tertiaryColor,
-          background: backgroundColor,
-          error: errorColor,
+          seedColor: kMainColor,
+          secondary: kSecondaryColor,
+          tertiary: kTertiaryColor,
+          background: kBackgroundColor,
+          error: kErrorColor,
         ),
         useMaterial3: true,
         fontFamily: 'Avenir Next',

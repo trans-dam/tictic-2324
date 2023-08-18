@@ -18,6 +18,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   @override
   Widget build(BuildContext context) {
     return WelcomeScreenTemplate(
+        isFirstScreen: true,
         flexibleContent: const TextSlider(),
         shrinkContent: Column(
           children: [
@@ -25,7 +26,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 onPressed: () => {debugPrint('Continuer sans compte')},
                 text: 'Continuer sans compte'),
             const Padding(
-              padding: EdgeInsets.symmetric(horizontal: hPadding * 2),
+              padding: EdgeInsets.symmetric(horizontal: kHorizontalPadding * 2),
               child: TextDivider(),
             ),
             SingleChildScrollView(
@@ -40,10 +41,11 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     isSeedColor: false,
                   ),
                   const SizedBox(
-                    width: hPadding,
+                    width: kHorizontalPadding,
                   ),
                   MainButton(
-                    onPressed: () => {debugPrint('Créer mon compte')},
+                    onPressed: () =>
+                        {Navigator.pushNamed(context, kRegisterRoute)},
                     text: 'Créer mon compte',
                     isSeedColor: false,
                   )

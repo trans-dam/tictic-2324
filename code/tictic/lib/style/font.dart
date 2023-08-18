@@ -2,12 +2,37 @@ import 'package:flutter/material.dart';
 
 import 'colors.dart';
 
-const TextStyle italicText = TextStyle(
+const kItalicText = TextStyle(
   fontSize: 19,
   fontWeight: FontWeight.w500,
   fontStyle: FontStyle.italic,
-  color: seedColor,
+  color: kMainColor,
 );
 
-const buttonStyle = TextStyle(
-    fontSize: 16, fontWeight: FontWeight.w600, color: backgroundColor);
+const kButtonStyle = TextStyle(
+    fontSize: 16, fontWeight: FontWeight.w600, color: kBackgroundColor);
+
+const kLabelStyle =
+    TextStyle(color: kMainColor, fontWeight: FontWeight.w500, fontSize: 18);
+
+const kButtonTextStyle = TextStyle(
+    height: 0.8,
+    color: kMainColor,
+    fontStyle: FontStyle.italic,
+    decoration: TextDecoration.underline,
+    fontSize: 20);
+
+const kErrorStyle = TextStyle(
+  color: kErrorColor,
+  fontWeight: FontWeight.w500,
+  fontSize: 14,
+);
+const kHintStyle =  TextStyle(
+  fontStyle: FontStyle.italic,
+);
+
+const kTextDiverStyle = TextStyle(
+  fontSize: 18,
+  fontWeight: FontWeight.w500,
+);
+const kInfoIconSize = 15.0;

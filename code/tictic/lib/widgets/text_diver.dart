@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tictic/widgets/line_text.dart';
 
+import '../style/font.dart';
 import '../style/spacings.dart';
 
 class TextDivider extends StatelessWidget {
@@ -9,18 +10,15 @@ class TextDivider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Padding(
-      padding: EdgeInsets.symmetric(vertical: vPadding * 2),
+      padding: EdgeInsets.symmetric(vertical: kVerticalPadding * 2),
       child: Row(
         children: [
           LineText(),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: hPadding),
+            padding: EdgeInsets.symmetric(horizontal: kHorizontalPadding),
             child: Text('Ou',
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w500,
-                )),
+                style: kTextDiverStyle),
           ),
           LineText(),
         ],

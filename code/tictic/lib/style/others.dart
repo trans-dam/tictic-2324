@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-final shadow = BoxShadow(
+final kShadow = BoxShadow(
   color: Colors.black.withOpacity(0.16),
   spreadRadius: 3,
   blurRadius: 7,
