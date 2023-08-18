@@ -23,10 +23,10 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
         shrinkContent: Column(
           children: [
             MainButton(
-                onPressed: () => {debugPrint('Continuer sans compte')},
+                onPressed: () => {Navigator.pushNamed(context, kHomeRoute)},
                 text: 'Continuer sans compte'),
             const Padding(
-              padding: EdgeInsets.symmetric(horizontal: kHorizontalPadding * 2),
+              padding: EdgeInsets.symmetric(horizontal:kHorizontalPaddingL),
               child: TextDivider(),
             ),
             SingleChildScrollView(

@@ -27,8 +27,16 @@ const kErrorStyle = TextStyle(
   fontWeight: FontWeight.w500,
   fontSize: 14,
 );
-const kHintStyle =  TextStyle(
+const kHintStyle = TextStyle(
   fontStyle: FontStyle.italic,
+);
+const kTitleSideBar = TextStyle(
+ fontWeight: FontWeight.w600,
+  fontSize: 27,
+);
+const kTextSideBar = TextStyle(
+ fontWeight: FontWeight.w600,
+  fontSize: 20,
 );
 
 const kTextDiverStyle = TextStyle(
@@ -36,3 +44,5 @@ const kTextDiverStyle = TextStyle(
   fontWeight: FontWeight.w500,
 );
 const kInfoIconSize = 15.0;
+
+const kLogoSize = 44.0;

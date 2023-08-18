@@ -10,7 +10,7 @@ class TextDivider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Padding(
-      padding: EdgeInsets.symmetric(vertical: kVerticalPadding * 2),
+      padding: EdgeInsets.symmetric(vertical: kVerticalPaddingL),
       child: Row(
         children: [
           LineText(),

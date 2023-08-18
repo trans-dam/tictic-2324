@@ -21,7 +21,7 @@ class MainButton extends StatelessWidget {
       onTap: onPressed,
       child: Container(
         padding: const EdgeInsets.symmetric(
-            vertical: kVerticalPadding / 2, horizontal: kHorizontalPadding),
+            vertical: kVerticalPaddingS, horizontal: kHorizontalPadding),
         decoration: BoxDecoration(
           color: isSeedColor ? kMainColor : kTertiaryColor,
           borderRadius: BorderRadius.circular(20),

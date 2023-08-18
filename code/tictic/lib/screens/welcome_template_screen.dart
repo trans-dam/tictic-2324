@@ -46,22 +46,22 @@ class _WelcomeScreenTemplateState extends State<WelcomeScreenTemplate> {
                           onTap: () => {Navigator.pop(context)},
                           child: Container(
                             padding: const EdgeInsets.symmetric(
-                                vertical: kVerticalPadding / 2,
-                                horizontal: kHorizontalPadding / 2),
+                                vertical: kVerticalPaddingS,
+                                horizontal: kHorizontalPaddingS),
                             decoration: BoxDecoration(
                                 color: kBackgroundColor,
                                 borderRadius: BorderRadius.circular(30),
                                 border:
                                     Border.all(color: kTertiaryColor, width: 2),
                                 boxShadow: [kShadow]),
-                            child: Icon(Icons.arrow_back),
+                            child: const Icon(Icons.arrow_back),
                           ),
                         ),
                       )
                     : Container(),
                 Padding(
                   padding: const EdgeInsets.only(
-                      bottom: kVerticalPadding * 2, top: kVerticalPadding * 3),
+                      bottom: kVerticalPaddingL, top: kVerticalPadding * 3),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     mainAxisSize: MainAxisSize.max,

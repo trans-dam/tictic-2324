@@ -40,7 +40,7 @@ class _TextSliderState extends State<TextSlider> {
               },
               itemBuilder: (context, index) {
                 return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: kHorizontalPadding * 2),
+                  padding: const EdgeInsets.symmetric(horizontal:kHorizontalPaddingL),
                   child: Text(
                     items[index],
                     textAlign: TextAlign.center,
@@ -50,7 +50,7 @@ class _TextSliderState extends State<TextSlider> {
               },
             )),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: kHorizontalPadding * 2),
+          padding: const EdgeInsets.symmetric(horizontal:kHorizontalPaddingL),
           child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: items.map((e) {
