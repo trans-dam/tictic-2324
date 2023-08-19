@@ -20,17 +20,17 @@ class GroupCard extends StatelessWidget {
           boxShadow: [kShadow]),
       child: Column(
         children: [
-          const Row(
+          Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Flexible(
                   flex: 1,
                   child: Text(
-                    'Voyage à Sainte-Maxime',
-                    style: kTextSideBar,
+                    'Voyage à Sainte-Maxime 🇫🇷🧳',
+                    style: kTextSideBar.copyWith(height: 1),
                   )),
-              Text(
+              const Text(
                 '1200€',
                 style: kTextSideBarLight,
               ),

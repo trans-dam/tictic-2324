@@ -24,7 +24,7 @@ class InfoSlider extends StatelessWidget {
         borderRadius: BorderRadius.only(
             topLeft: Radius.circular(30), bottomLeft: Radius.circular(30)),
       ),
-      height: 150,
+      height: 135,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         controller: PageController(viewportFraction: 0.3, initialPage: 0),
@@ -44,7 +44,6 @@ class InfoSlider extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 width: 170,
-                height: 140,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
