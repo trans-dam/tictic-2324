@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tictic/partials/form/text_input.dart';
 
+import '../../Helpers/validations.dart';
 import '../../style/colors.dart';
 
 class PasswordInput extends StatefulWidget {
@@ -22,14 +23,7 @@ class _PasswordInputState extends State<PasswordInput> {
       labelText: 'Mot de passe',
       obscureText: _isObscure,
       keyboardType: TextInputType.visiblePassword,
-      validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Le mot de passe ne peut pas être vide';
-        } else if (value.length < 9) {
-          return 'Le mot de passe doit contenir au moins 8 caractères';
-        }
-        return null;
-      },
+      validator: validatePassword,
       suffixIcon: GestureDetector(
         child: Icon(_suffixIcon, color: kMainColor),
         onTap: () {
@@ -45,4 +39,6 @@ class _PasswordInputState extends State<PasswordInput> {
       ),
     );
   }
+
+
 }
