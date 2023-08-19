@@ -4,7 +4,7 @@ import 'package:tictic/screens/welcome_template_screen.dart';
 import '../routes.dart';
 import '../style/spacings.dart';
 import '../partials/form/main_button.dart';
-import '../partials/text_diver.dart';
+import '../partials/form/text_diver.dart';
 import '../partials/slider/text_slider.dart';
 
 class WelcomeScreen extends StatefulWidget {

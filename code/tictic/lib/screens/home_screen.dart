@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:tictic/style/colors.dart';
 import 'package:tictic/style/font.dart';
 
+import '../partials/group_card.dart';
 import '../style/others.dart';
 import '../style/spacings.dart';
 import '../partials/slider/info_slider.dart';
@@ -28,6 +29,7 @@ class HomeScreen extends StatelessWidget {
       body: SingleChildScrollView(
           child: SafeArea(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
               padding: const EdgeInsets.symmetric(
@@ -92,33 +94,33 @@ class HomeScreen extends StatelessWidget {
                 children: [
                   Text(
                     'On vous doit de l’argent 👌',
-                    style: kSubTitleHome,
+                    style: kTagLine,
                     textAlign: TextAlign.left,
                   ),
                 ],
               ),
             ),
             const SizedBox(
-              height: kVerticalPaddingL,
+              height: kVerticalPadding,
             ),
-            Container(
-              padding: const EdgeInsets.symmetric(vertical: kVerticalPadding),
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage("assets/img/back-slider.png"),
-                  fit: BoxFit.cover,
-                ),
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(30),
-                    bottomLeft: Radius.circular(30)),
+            InfoSlider(items: items),
+            const Padding(
+              padding: EdgeInsets.symmetric(
+                  horizontal: kHorizontalPaddingL, vertical: kVerticalPadding),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(bottom: kVerticalPaddingS),
+                    child: Text('Vos groupes', style: kSectionTitle),
+                  ),
+                  GroupCard(),
+                ],
               ),
-              height: 150,
-              child: InfoSlider(items: items),
-            )
+            ),
           ],
         ),
       )),
-      // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }

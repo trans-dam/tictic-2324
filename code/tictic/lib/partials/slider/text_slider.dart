@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../style/font.dart';
 import '../../style/spacings.dart';
-import '../line_item.dart';
+import 'line_item.dart';
 
 class TextSlider extends StatefulWidget {
   const TextSlider({super.key});

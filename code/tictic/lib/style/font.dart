@@ -15,6 +15,9 @@ const kButtonStyle = TextStyle(
 const kLabelStyle =
     TextStyle(color: kMainColor, fontWeight: FontWeight.w500, fontSize: 18);
 
+const kSmallText =
+    TextStyle(color: kMainColor, fontWeight: FontWeight.w500, fontSize: 13);
+
 const kButtonTextStyle = TextStyle(
     height: 0.8,
     color: kMainColor,
@@ -38,14 +41,23 @@ const kTextSideBar = TextStyle(
   fontWeight: FontWeight.w600,
   fontSize: 20,
 );
+const kTextSideBarLight = TextStyle(
+  fontWeight: FontWeight.w600,
+  fontSize: 16,
+  color: kTertiaryColor,
+);
 const kTitleHome = TextStyle(
   fontWeight: FontWeight.w600,
   fontSize: 27,
 );
-const kSubTitleHome = TextStyle(
+const kTagLine = TextStyle(
   fontWeight: FontWeight.w500,
   fontStyle: FontStyle.italic,
   fontSize: 20,
+);
+const kSectionTitle = TextStyle(
+  fontWeight: FontWeight.w500,
+  fontSize: 22,
 );
 
 const kTextDiverStyle = TextStyle(

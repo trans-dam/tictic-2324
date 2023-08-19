@@ -14,53 +14,65 @@ class InfoSlider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      scrollDirection: Axis.horizontal,
-      controller: PageController(viewportFraction: 0.3, initialPage: 0),
-      itemCount: items.length,
-      itemBuilder: (context, index) {
-        return Row(
-          children: [
-            index == 0
-                ? const SizedBox(
-                    width: kHorizontalPaddingL,
-                  )
-                : Container(),
-            Container(
-              padding: const EdgeInsets.only(right: kHorizontalPadding),
-              decoration: BoxDecoration(
-                color: kBackgroundColor.withOpacity(0.7),
-                borderRadius: BorderRadius.circular(10),
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: kVerticalPadding),
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage("assets/img/back-slider.png"),
+          fit: BoxFit.cover,
+        ),
+        borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(30), bottomLeft: Radius.circular(30)),
+      ),
+      height: 150,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        controller: PageController(viewportFraction: 0.3, initialPage: 0),
+        itemCount: items.length,
+        itemBuilder: (context, index) {
+          return Row(
+            children: [
+              index == 0
+                  ? const SizedBox(
+                      width: kHorizontalPaddingL,
+                    )
+                  : Container(),
+              Container(
+                padding: const EdgeInsets.only(right: kHorizontalPadding),
+                decoration: BoxDecoration(
+                  color: kBackgroundColor.withOpacity(0.7),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                width: 170,
+                height: 140,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Text(
+                      items[index],
+                      textAlign: TextAlign.right,
+                      style: kTextSideBar,
+                    ),
+                    const SizedBox(
+                      height: kVerticalPadding,
+                    ),
+                    const Text(
+                      '80€',
+                      textAlign: TextAlign.right,
+                      style: kTitleHome,
+                    ),
+                  ],
+                ),
               ),
-              width: 170,
-              height: 140,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Text(
-                    items[index],
-                    textAlign: TextAlign.right,
-                    style: kTextSideBar,
-                  ),
-                  const SizedBox(
-                    height: kVerticalPadding,
-                  ),
-                  const Text(
-                    '80€',
-                    textAlign: TextAlign.right,
-                    style: kTitleHome,
-                  ),
-                ],
-              ),
-            ),
-            index < items.length
-                ? const SizedBox(
-                    width: kHorizontalPadding,
-                  )
-                : Container(),
-          ],
-        );
-      },
+              index < items.length
+                  ? const SizedBox(
+                      width: kHorizontalPadding,
+                    )
+                  : Container(),
+            ],
+          );
+        },
+      ),
     );
   }
 }

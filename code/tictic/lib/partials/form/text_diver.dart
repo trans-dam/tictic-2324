@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:tictic/partials/line_text.dart';
+import 'package:tictic/partials/form/line_text.dart';
 
-import '../style/font.dart';
-import '../style/spacings.dart';
+import '../../style/font.dart';
+import '../../style/spacings.dart';
 
 class TextDivider extends StatelessWidget {
   const TextDivider({super.key});
