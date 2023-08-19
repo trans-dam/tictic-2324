@@ -108,10 +108,9 @@ class HomeScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: EdgeInsets.only(bottom: kVerticalPaddingS),
+                    padding: EdgeInsets.only(bottom: kVerticalPadding),
                     child: Text('Vos groupes', style: kSectionTitle),
                   ),
-                  Group(),
                   Group()
                 ],
               ),

@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        dividerColor: Colors.transparent,
         colorScheme: ColorScheme.fromSeed(
           seedColor: kMainColor,
           secondary: kSecondaryColor,
@@ -24,6 +25,9 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
         fontFamily: 'Avenir Next',
+        listTileTheme: const ListTileThemeData(
+          dense: true,
+        ),
       ),
       routes: router,
     );
