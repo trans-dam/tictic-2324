@@ -23,7 +23,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   Widget build(BuildContext context) {
     return WelcomeScreenTemplate(
         flexibleContent: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: kHorizontalPaddingL),
+          padding: const EdgeInsets.symmetric(horizontal: kHorizontalPadding),
           child: Form(
             key: widget._registerFormKey,
             child: Column(

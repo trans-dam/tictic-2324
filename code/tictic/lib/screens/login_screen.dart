@@ -23,7 +23,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return WelcomeScreenTemplate(
         flexibleContent: Padding(
-          padding: const EdgeInsets.symmetric(horizontal:kHorizontalPaddingL),
+          padding: const EdgeInsets.symmetric(horizontal:kHorizontalPadding),
           child: Form(
             key: widget._loginFormKey,
             child: Column(

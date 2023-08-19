@@ -26,7 +26,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 onPressed: () => {Navigator.pushNamed(context, kHomeRoute)},
                 text: 'Continuer sans compte'),
             const Padding(
-              padding: EdgeInsets.symmetric(horizontal:kHorizontalPaddingL),
+              padding: EdgeInsets.symmetric(horizontal:kHorizontalPadding),
               child: TextDivider(),
             ),
             SingleChildScrollView(

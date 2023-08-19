@@ -33,7 +33,7 @@ class HomeScreen extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.symmetric(
-                  horizontal: kHorizontalPaddingL, vertical: kVerticalPadding),
+                  horizontal: kHorizontalPadding, vertical: kVerticalPadding),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -60,9 +60,6 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(
-              height: kVerticalPaddingL,
-            ),
             Center(
               child: Image.asset(
                 'assets/img/dog.png',
@@ -75,7 +72,7 @@ class HomeScreen extends StatelessWidget {
               height: kVerticalPaddingL,
             ),
             const Padding(
-              padding: EdgeInsets.only(left: kHorizontalPaddingL),
+              padding: EdgeInsets.only(left: kHorizontalPadding),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -88,7 +85,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             const Padding(
-              padding: EdgeInsets.only(left: kHorizontalPaddingL),
+              padding: EdgeInsets.only(left: kHorizontalPadding),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -106,7 +103,7 @@ class HomeScreen extends StatelessWidget {
             InfoSlider(items: items),
             const Padding(
               padding: EdgeInsets.symmetric(
-                  horizontal: kHorizontalPaddingL, vertical: kVerticalPadding),
+                  horizontal: kHorizontalPadding, vertical: kVerticalPadding),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

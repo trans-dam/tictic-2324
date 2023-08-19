@@ -34,7 +34,7 @@ class InfoSlider extends StatelessWidget {
             children: [
               index == 0
                   ? const SizedBox(
-                      width: kHorizontalPaddingL,
+                      width: kHorizontalPadding,
                     )
                   : Container(),
               Container(
