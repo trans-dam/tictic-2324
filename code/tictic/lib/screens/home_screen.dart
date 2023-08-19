@@ -3,11 +3,11 @@ import 'package:flutter_svg/svg.dart';
 import 'package:tictic/style/colors.dart';
 import 'package:tictic/style/font.dart';
 
-import '../partials/group_card.dart';
+import '../partials/group.dart';
+import '../partials/navigation/sidebar.dart';
+import '../partials/slider/info_slider.dart';
 import '../style/others.dart';
 import '../style/spacings.dart';
-import '../partials/slider/info_slider.dart';
-import '../partials/navigation/sidebar.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
@@ -111,7 +111,8 @@ class HomeScreen extends StatelessWidget {
                     padding: EdgeInsets.only(bottom: kVerticalPaddingS),
                     child: Text('Vos groupes', style: kSectionTitle),
                   ),
-                  GroupCard(),
+                  Group(),
+                  Group()
                 ],
               ),
             ),
