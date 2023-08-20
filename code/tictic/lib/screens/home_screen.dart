@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:tictic/models/group.dart';
+import 'package:tictic/partials/group.dart';
 import 'package:tictic/style/colors.dart';
 import 'package:tictic/style/font.dart';
 
-import '../partials/group.dart';
 import '../partials/navigation/sidebar.dart';
 import '../partials/slider/info_slider.dart';
 import '../style/others.dart';
@@ -15,7 +16,7 @@ class HomeScreen extends StatelessWidget {
   final items = [
     'Total à payer',
     'Total à recevoir',
-    'Total',
+    'Dernière transaction',
   ];
 
   @override
@@ -101,18 +102,21 @@ class HomeScreen extends StatelessWidget {
               height: kVerticalPadding,
             ),
             InfoSlider(items: items),
+            const SizedBox(
+              height: kVerticalPadding,
+            ),
             const Padding(
-              padding: EdgeInsets.symmetric(
+              padding: EdgeInsets.symmetric(horizontal: kHorizontalPadding),
+              child: Text('Vos groupes', style: kSectionTitle),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(
                   horizontal: kHorizontalPadding, vertical: kVerticalPadding),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(bottom: kVerticalPadding),
-                    child: Text('Vos groupes', style: kSectionTitle),
-                  ),
-                  Group()
-                ],
+                children: groups.map((e) {
+                  return GroupWidget(group: e);
+                }).toList(),
               ),
             ),
           ],

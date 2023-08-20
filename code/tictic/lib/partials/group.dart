@@ -1,20 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:tictic/models/group.dart';
 import 'package:tictic/style/font.dart';
 
 import '../style/spacings.dart';
 import 'TransactionCard.dart';
 import 'group_card.dart';
 
-class Group extends StatefulWidget {
-  const Group({
+class GroupWidget extends StatefulWidget {
+  final Group group;
+
+  const GroupWidget({
     super.key,
+    required this.group,
   });
 
   @override
-  State<Group> createState() => _GroupState();
+  State<GroupWidget> createState() => _GroupWidgetState();
 }
 
-class _GroupState extends State<Group> {
+class _GroupWidgetState extends State<GroupWidget> {
   bool isExpand = true;
 
   @override
@@ -22,7 +26,7 @@ class _GroupState extends State<Group> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const GroupCard(),
+        GroupCard(group: widget.group),
         ExpansionTile(
           onExpansionChanged: (bool isExpanded) {
             setState(() {

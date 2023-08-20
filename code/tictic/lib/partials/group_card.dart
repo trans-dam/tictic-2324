@@ -1,12 +1,19 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:tictic/models/group.dart';
 
 import '../style/font.dart';
 import '../style/others.dart';
 import '../style/spacings.dart';
 
 class GroupCard extends StatelessWidget {
+  final Group group;
+
   const GroupCard({
     super.key,
+    required this.group,
   });
 
   @override
@@ -27,11 +34,11 @@ class GroupCard extends StatelessWidget {
               Flexible(
                   flex: 1,
                   child: Text(
-                    'Voyage à Sainte-Maxime 🇫🇷🧳',
+                    group.title,
                     style: kTextSideBar.copyWith(height: 1),
                   )),
-              const Text(
-                '1200€',
+              Text(
+                '${Random().nextInt(1000)}€',
                 style: kTextSideBarLight,
               ),
             ],
@@ -57,27 +64,35 @@ class GroupCard extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text(
-                          '#Voyage#Vacance#Anciens',
-                          style: kHintStyle,
+                        Expanded(
+                          child: SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Text(
+                              group.tags?.join('#') ?? '',
+                              style: kHintStyle,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          width: kHorizontalPaddingS,
                         ),
                         Text(
-                          '80€',
+                          '${Random().nextInt(100)}€',
                           style: kTitleSideBar.copyWith(height: 1),
                         ),
                       ],
                     ),
-                    const Padding(
+                    Padding(
                       padding: EdgeInsets.only(top: kVerticalPaddingS),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            '6 participants',
+                            '${group.users.length} participants',
                             style: kSmallText,
                           ),
                           Text(
-                            'Depuis le 16 juillet 2023',
+                            DateFormat.yMMMEd().format(group.startDate),
                             style: kSmallText,
                           ),
                         ],
