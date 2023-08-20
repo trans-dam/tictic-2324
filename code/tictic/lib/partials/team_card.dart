@@ -83,7 +83,7 @@ class TeamCard extends StatelessWidget {
                       ],
                     ),
                     Padding(
-                      padding: EdgeInsets.only(top: kVerticalPaddingS),
+                      padding: const EdgeInsets.only(top: kVerticalPaddingS),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [

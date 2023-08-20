@@ -3,7 +3,7 @@ import 'package:tictic/models/transaction.dart';
 
 import '../style/font.dart';
 import '../style/spacings.dart';
-import 'TransactionCard.dart';
+import 'transaction_card.dart';
 
 class TransactionList extends StatefulWidget {
   final List<Transaction> transactions;
@@ -47,15 +47,14 @@ class _TransactionListState extends State<TransactionList> {
         ),
         children: [
           Padding(
-            padding: EdgeInsets.only(bottom: kVerticalPaddingL),
+            padding: const EdgeInsets.only(bottom: kVerticalPaddingL),
             child: Column(
               children: widget.transactions
-                      ?.sublist(0, 3)
-                      .map((transaction) => TransactionCard(
-                            transaction: transaction,
-                          ))
-                      .toList() ??
-                  [],
+                  .sublist(0, 3)
+                  .map((transaction) => TransactionCard(
+                        transaction: transaction,
+                      ))
+                  .toList(),
             ),
           )
         ]);
