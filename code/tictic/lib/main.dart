@@ -31,10 +31,6 @@ class MyApp extends StatelessWidget {
           dense: true,
         ),
       ),
-      localeResolutionCallback: (deviceLocale, supportedLocales) {
-        debugPrint(deviceLocale?.countryCode);
-        debugPrint(deviceLocale?.languageCode);
-      },
       routes: router,
     );
   }

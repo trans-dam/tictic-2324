@@ -38,7 +38,7 @@ class TeamCard extends StatelessWidget {
                     style: kTextSideBar.copyWith(height: 1),
                   )),
               Text(
-                '${team.total}€',
+                '${team.getSum()}€',
                 style: kTextSideBarLight,
               ),
             ],

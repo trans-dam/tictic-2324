@@ -21,16 +21,14 @@ class Team {
       required this.startDate,
       required this.users});
 
-  int get total => _calculateSum();
-
-  _calculateSum() {
-    int sum = 0;
+  getSum() {
+    double sum = 0;
     if (transactions != null) {
       for (var transaction in transactions!) {
-        sum += transaction.amount.toInt();
+        sum += transaction.amount;
       }
-      return sum;
     }
+    return sum;
   }
 }
 
@@ -60,5 +58,13 @@ List<Team> teams = [
     owner: fictiveUsers[0],
     users: [fictiveUsers[0], fictiveUsers[2], fictiveUsers[4]],
     transactions: transactionsList.sublist(10, 15),
+  ),
+  Team(
+    title: "✨ nouveau groupe",
+    picturePath: "assets/game.jpg",
+    startDate: DateTime(2023, 9, 30),
+    owner: fictiveUsers[0],
+    users: [fictiveUsers[0], fictiveUsers[2], fictiveUsers[4]],
+    //transactions: transactionsList.sublist(10, 15),
   ),
 ];
