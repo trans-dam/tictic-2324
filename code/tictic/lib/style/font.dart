@@ -38,9 +38,11 @@ const kTitleSideBar = TextStyle(
   fontSize: 27,
 );
 const kTextSideBar = TextStyle(
-  fontWeight: FontWeight.w600,
-  fontSize: 20,
-);
+    fontWeight: FontWeight.w600,
+    fontSize: 20,
+    height: 1,
+    color: kSecondaryColor);
+
 const kTextSideBarLight = TextStyle(
   fontWeight: FontWeight.w600,
   fontSize: 16,
@@ -48,7 +50,9 @@ const kTextSideBarLight = TextStyle(
 );
 const kTitleHome = TextStyle(
   fontWeight: FontWeight.w600,
+  height: 1,
   fontSize: 27,
+  color: kMainColor,
 );
 const kTagLine = TextStyle(
   fontWeight: FontWeight.w500,

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 import '../../style/colors.dart';
@@ -38,7 +40,9 @@ class InfoSlider extends StatelessWidget {
                     )
                   : Container(),
               Container(
-                padding: const EdgeInsets.only(right: kHorizontalPadding),
+                padding: const EdgeInsets.symmetric(
+                    horizontal: kHorizontalPaddingS,
+                    vertical: kVerticalPaddingS),
                 decoration: BoxDecoration(
                   color: kBackgroundColor.withOpacity(0.7),
                   borderRadius: BorderRadius.circular(10),
@@ -46,17 +50,21 @@ class InfoSlider extends StatelessWidget {
                 width: 170,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      items[index],
-                      textAlign: TextAlign.right,
-                      style: kTextSideBar,
+                    Flexible(
+                      flex: 1,
+                      child: Text(
+                        items[index],
+                        textAlign: TextAlign.right,
+                        style: kTextSideBar,
+                      ),
                     ),
                     const SizedBox(
                       height: kVerticalPadding,
                     ),
-                    const Text(
-                      '80€',
+                    Text(
+                      '${Random().nextInt(1000)}€',
                       textAlign: TextAlign.right,
                       style: kTitleHome,
                     ),
