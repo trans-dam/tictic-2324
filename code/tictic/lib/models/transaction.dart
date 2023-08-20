@@ -20,7 +20,7 @@ class Transaction {
   });
 }
 
-List<Transaction> transactions = [
+List<Transaction> transactionsList = [
   Transaction(
     id: "1",
     title: "Salle Royale",

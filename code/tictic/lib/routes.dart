@@ -11,7 +11,7 @@ const String kHomeRoute = '/';
 const String kWelcomeRoute = '/welcome';
 const String kErrorRoute = '/error';
 const String kSettingRoute = '/settings';
-const String kAddGroupRoute = '/add_group';
+const String kAddTeamRoute = '/add_team';
 const String kAddPersonRoute = '/add_person';
 const String kAddTransactionRoute = '/add_transaction';
 

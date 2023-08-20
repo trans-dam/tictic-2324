@@ -2,18 +2,18 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:tictic/models/group.dart';
+import 'package:tictic/models/team.dart';
 
 import '../style/font.dart';
 import '../style/others.dart';
 import '../style/spacings.dart';
 
-class GroupCard extends StatelessWidget {
-  final Group group;
+class TeamCard extends StatelessWidget {
+  final Team team;
 
-  const GroupCard({
+  const TeamCard({
     super.key,
-    required this.group,
+    required this.team,
   });
 
   @override
@@ -34,11 +34,11 @@ class GroupCard extends StatelessWidget {
               Flexible(
                   flex: 1,
                   child: Text(
-                    group.title,
+                    team.title,
                     style: kTextSideBar.copyWith(height: 1),
                   )),
               Text(
-                '${Random().nextInt(1000)}€',
+                '${team.total}€',
                 style: kTextSideBarLight,
               ),
             ],
@@ -68,7 +68,7 @@ class GroupCard extends StatelessWidget {
                           child: SingleChildScrollView(
                             scrollDirection: Axis.horizontal,
                             child: Text(
-                              group.tags?.join('#') ?? '',
+                              team.tags?.join('#') ?? '',
                               style: kHintStyle,
                             ),
                           ),
@@ -88,11 +88,12 @@ class GroupCard extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            '${group.users.length} participants',
+                            '${team.users.length} participants',
                             style: kSmallText,
                           ),
                           Text(
-                            DateFormat.yMMMEd().format(group.startDate),
+                            // TODO : replace 'fr' by a variable
+                            "Depuis le ${DateFormat.yMMMMd('fr').format(team.startDate)}",
                             style: kSmallText,
                           ),
                         ],

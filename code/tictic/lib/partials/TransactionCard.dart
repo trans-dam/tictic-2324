@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:tictic/models/transaction.dart';
 
 import '../style/colors.dart';
 import '../style/font.dart';
@@ -6,8 +8,11 @@ import '../style/others.dart';
 import '../style/spacings.dart';
 
 class TransactionCard extends StatelessWidget {
+  final Transaction transaction;
+
   const TransactionCard({
     super.key,
+    required this.transaction,
   });
 
   @override
@@ -28,15 +33,15 @@ class TransactionCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              '30/07/2023',
+              DateFormat.yMd('fr').format(transaction.date),
               style: kSmallText.apply(color: kMainColor.withOpacity(0.6)),
             ),
             Text(
-              'Arnaud - Dépenses',
+              transaction.title,
               style: kSmallText,
             ),
             Text(
-              '300,00€',
+              "${transaction.amount}€",
               style: kSmallText,
             ),
           ],

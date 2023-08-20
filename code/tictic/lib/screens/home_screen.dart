@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:tictic/models/group.dart';
-import 'package:tictic/partials/group_widget.dart';
+import 'package:tictic/partials/team_overview.dart';
 import 'package:tictic/style/colors.dart';
 import 'package:tictic/style/font.dart';
 
+import '../models/team.dart';
 import '../partials/navigation/sidebar.dart';
 import '../partials/slider/info_slider.dart';
 import '../style/others.dart';
@@ -114,8 +114,8 @@ class HomeScreen extends StatelessWidget {
                   horizontal: kHorizontalPadding, vertical: kVerticalPadding),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: groups.map((e) {
-                  return GroupWidget(group: e);
+                children: teams.map((e) {
+                  return TeamOverview(team: e);
                 }).toList(),
               ),
             ),

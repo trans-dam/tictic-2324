@@ -43,7 +43,7 @@ class Sidebar extends StatelessWidget {
               icon: Icons.groups,
               title: 'Créer un groupe',
               onTap: () {
-                Navigator.pushNamed(context, kAddGroupRoute);
+                Navigator.pushNamed(context, kAddTeamRoute);
               },
             ),
             MenuItem(
