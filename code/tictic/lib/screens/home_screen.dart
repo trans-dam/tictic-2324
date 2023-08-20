@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:tictic/models/group.dart';
-import 'package:tictic/partials/group.dart';
+import 'package:tictic/partials/group_widget.dart';
 import 'package:tictic/style/colors.dart';
 import 'package:tictic/style/font.dart';
 

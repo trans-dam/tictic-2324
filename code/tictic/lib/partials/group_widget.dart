@@ -53,12 +53,12 @@ class _GroupWidgetState extends State<GroupWidget> {
                     ),
             ],
           ),
-          children: <Widget>[
+          children: const <Widget>[
             TransactionCard(),
             TransactionCard(),
             TransactionCard(),
             SizedBox(
-              height: kVerticalPadding,
+              height: kVerticalPaddingXL,
             ),
           ],
         ),

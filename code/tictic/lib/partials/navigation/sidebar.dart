@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:tictic/partials/navigation/menu_item.dart';
 import 'package:tictic/routes.dart';
 import 'package:tictic/style/colors.dart';
 import 'package:tictic/style/spacings.dart';
-import 'package:tictic/partials/navigation/menu_item.dart';
 
 import '../../style/font.dart';
 
@@ -26,7 +26,7 @@ class Sidebar extends StatelessWidget {
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             const Text(
-              'Actions rapides',
+              'Actions rapides 🧳',
               style: kTitleSideBar,
             ),
             const SizedBox(

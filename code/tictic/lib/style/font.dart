@@ -36,6 +36,7 @@ const kHintStyle = TextStyle(
 const kTitleSideBar = TextStyle(
   fontWeight: FontWeight.w600,
   fontSize: 27,
+  color: kMainColor,
 );
 const kTextSideBar = TextStyle(
     fontWeight: FontWeight.w600,
