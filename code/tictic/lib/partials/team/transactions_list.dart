@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tictic/models/transaction.dart';
 
-import '../style/font.dart';
-import '../style/spacings.dart';
+import '../../style/font.dart';
+import '../../style/spacings.dart';
 import 'transaction_card.dart';
 
 class TransactionList extends StatefulWidget {

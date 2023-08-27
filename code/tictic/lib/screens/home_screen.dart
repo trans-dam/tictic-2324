@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:tictic/partials/team_overview.dart';
+import 'package:tictic/partials/navigation/home_header.dart';
+import 'package:tictic/partials/team/team_overview.dart';
 import 'package:tictic/style/colors.dart';
 import 'package:tictic/style/font.dart';
 
 import '../models/team.dart';
 import '../partials/navigation/sidebar.dart';
 import '../partials/slider/info_slider.dart';
-import '../style/others.dart';
 import '../style/spacings.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -32,44 +31,12 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(
-                  horizontal: kHorizontalPadding, vertical: kVerticalPadding),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      scaffoldKey.currentState!.openDrawer();
-                    },
-                    child: Container(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: kVerticalPaddingS,
-                            horizontal: kHorizontalPaddingS),
-                        decoration: BoxDecoration(
-                            color: kBackgroundColor,
-                            borderRadius: BorderRadius.circular(30),
-                            border: Border.all(color: kTertiaryColor, width: 2),
-                            boxShadow: [kShadow]),
-                        child: const Icon(Icons.menu)),
-                  ),
-                  SvgPicture.asset(
-                    'assets/icons/logo.svg',
-                    semanticsLabel: 'Logo TicTic',
-                    height: kLogoSize,
-                  ),
-                ],
-              ),
-            ),
-            Center(
-              child: ClipOval(
-                child: Image.asset(
-                  'assets/img/dog.png',
-                  fit: BoxFit.cover,
-                  width: 108,
-                  height: 108,
-                ),
-              ),
+            HomeHeader(
+              icon: Icons.menu,
+              onTap: () {
+                scaffoldKey.currentState!.openDrawer();
+              },
+              picturePath: 'assets/img/dog.png',
             ),
             const SizedBox(
               height: kVerticalPaddingL,

@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:tictic/models/transaction.dart';
 
-import '../style/colors.dart';
-import '../style/font.dart';
-import '../style/others.dart';
-import '../style/spacings.dart';
+import '../../style/colors.dart';
+import '../../style/font.dart';
+import '../../style/others.dart';
+import '../../style/spacings.dart';
 
 class TransactionCard extends StatelessWidget {
   final Transaction transaction;

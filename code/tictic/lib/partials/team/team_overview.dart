@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tictic/models/team.dart';
-import 'package:tictic/partials/transactions_list.dart';
+import 'package:tictic/partials/team/transactions_list.dart';
 import 'package:tictic/routes.dart';
 
 import 'team_card.dart';

@@ -3,10 +3,12 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:tictic/models/team.dart';
+import 'package:tictic/partials/team/member_count.dart';
+import 'package:tictic/partials/team/tags.dart';
 
-import '../style/font.dart';
-import '../style/others.dart';
-import '../style/spacings.dart';
+import '../../style/font.dart';
+import '../../style/others.dart';
+import '../../style/spacings.dart';
 
 class TeamCard extends StatelessWidget {
   final Team team;
@@ -69,10 +71,7 @@ class TeamCard extends StatelessWidget {
                         Expanded(
                           child: SingleChildScrollView(
                             scrollDirection: Axis.horizontal,
-                            child: Text(
-                              team.tags?.join('#') ?? '',
-                              style: kHintStyle,
-                            ),
+                            child: Tags(tags: team.tags),
                           ),
                         ),
                         const SizedBox(
@@ -89,13 +88,11 @@ class TeamCard extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
-                            '${team.users.length} membres',
-                            style: kSmallText,
+                          MemberCount(
+                            count: team.users.length + 1,
                           ),
                           Text(
-                            // TODO : replace 'fr' by a variable
-                            "Depuis le ${DateFormat.yMMMMd('fr').format(team.startDate)}",
+                            "Depuis le ${DateFormat.yMd().format(team.startDate)}",
                             style: kSmallText,
                           ),
                         ],
