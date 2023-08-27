@@ -48,10 +48,12 @@ class TeamCard extends StatelessWidget {
           ),
           Row(
             children: [
-              Image.asset(
-                'assets/img/groupe-1.png',
-                width: 48,
-                height: 48,
+              ClipOval(
+                child: Image.asset(
+                  team.picturePath ?? 'assets/img/dog.png',
+                  width: 48,
+                  height: 48,
+                ),
               ),
               const SizedBox(
                 width: kHorizontalPadding,
@@ -88,7 +90,7 @@ class TeamCard extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            '${team.users.length} participants',
+                            '${team.users.length} membres',
                             style: kSmallText,
                           ),
                           Text(

@@ -62,11 +62,13 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             Center(
-              child: Image.asset(
-                'assets/img/dog.png',
-                fit: BoxFit.cover,
-                width: 108,
-                height: 108,
+              child: ClipOval(
+                child: Image.asset(
+                  'assets/img/dog.png',
+                  fit: BoxFit.cover,
+                  width: 108,
+                  height: 108,
+                ),
               ),
             ),
             const SizedBox(

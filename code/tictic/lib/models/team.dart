@@ -35,7 +35,7 @@ class Team {
 List<Team> teams = [
   Team(
     title: "💻 Code Magicians",
-    picturePath: "assets/code.jpg",
+    picturePath: "assets/img/team-1.png",
     startDate: DateTime(2023, 8, 31),
     owner: fictiveUsers[0],
     users: [fictiveUsers[0], fictiveUsers[1], fictiveUsers[2]],
@@ -44,7 +44,7 @@ List<Team> teams = [
   ),
   Team(
     title: "🌐 Web Weavers",
-    picturePath: "assets/web.jpg",
+    picturePath: "assets/img/team-2.png",
     startDate: DateTime(2023, 9, 15),
     owner: fictiveUsers[3],
     users: [fictiveUsers[3], fictiveUsers[4], fictiveUsers[5]],
@@ -53,7 +53,7 @@ List<Team> teams = [
   ),
   Team(
     title: "🎮 Game Gurus",
-    picturePath: "assets/game.jpg",
+    picturePath: "assets/img/team-3.png",
     startDate: DateTime(2023, 9, 30),
     owner: fictiveUsers[0],
     users: [fictiveUsers[0], fictiveUsers[2], fictiveUsers[4]],
@@ -61,7 +61,7 @@ List<Team> teams = [
   ),
   Team(
     title: "✨ nouveau groupe",
-    picturePath: "assets/game.jpg",
+    picturePath: "assets/img/team-4.png",
     startDate: DateTime(2023, 9, 30),
     owner: fictiveUsers[0],
     users: [fictiveUsers[0], fictiveUsers[2], fictiveUsers[4]],
