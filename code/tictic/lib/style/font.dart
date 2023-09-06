@@ -43,6 +43,8 @@ const kTextSideBar = TextStyle(
     fontSize: 20,
     height: 1,
     color: kSecondaryColor);
+const kTextTabItem = TextStyle(
+    fontWeight: FontWeight.w600, fontSize: 20, height: 1, color: kMainColor);
 
 const kTextSideBarLight = TextStyle(
   fontWeight: FontWeight.w600,
@@ -53,6 +55,12 @@ const kTitleHome = TextStyle(
   fontWeight: FontWeight.w600,
   height: 1,
   fontSize: 27,
+  color: kMainColor,
+);
+const kTitleBigStat = TextStyle(
+  fontWeight: FontWeight.w700,
+  height: 1,
+  fontSize: 24,
   color: kMainColor,
 );
 const kTagLine = TextStyle(
@@ -72,3 +80,5 @@ const kTextDiverStyle = TextStyle(
 const kInfoIconSize = 15.0;
 
 const kLogoSize = 44.0;
+const kProfileSize = 108.0;
+const kProfileSizeSmall = kProfileSize * .8;

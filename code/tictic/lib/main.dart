@@ -8,6 +8,7 @@ void main() {
   runApp(const MyApp());
 }
 
+@immutable
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 

@@ -1,5 +1,7 @@
+import 'package:flutter/foundation.dart';
 import 'package:tictic/models/user.dart';
 
+@immutable
 class Transaction {
   final String id;
   final String title;

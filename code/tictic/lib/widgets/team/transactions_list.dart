@@ -5,6 +5,7 @@ import '../../style/font.dart';
 import '../../style/spacings.dart';
 import 'transaction_card.dart';
 
+@immutable
 class TransactionList extends StatefulWidget {
   final List<Transaction> transactions;
 
@@ -26,8 +27,6 @@ class _TransactionListState extends State<TransactionList> {
           });
         },
         trailing: const SizedBox(),
-        childrenPadding: EdgeInsets.zero,
-        tilePadding: EdgeInsets.zero,
         initiallyExpanded: isExpand,
         title: Row(
           children: [
@@ -47,7 +46,7 @@ class _TransactionListState extends State<TransactionList> {
         ),
         children: [
           Padding(
-            padding: const EdgeInsets.only(bottom: kVerticalPaddingL),
+            padding: const EdgeInsets.only(bottom: kVerticalPaddingXL),
             child: Column(
               children: widget.transactions
                   .sublist(0, 3)

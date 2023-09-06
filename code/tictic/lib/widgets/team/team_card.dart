@@ -3,13 +3,14 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:tictic/models/team.dart';
-import 'package:tictic/partials/team/member_count.dart';
-import 'package:tictic/partials/team/tags.dart';
+import 'package:tictic/widgets/team/member_count.dart';
+import 'package:tictic/widgets/team/tags.dart';
 
 import '../../style/font.dart';
 import '../../style/others.dart';
 import '../../style/spacings.dart';
 
+@immutable
 class TeamCard extends StatelessWidget {
   final Team team;
 

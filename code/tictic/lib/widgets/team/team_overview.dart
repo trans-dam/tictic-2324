@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:tictic/models/team.dart';
-import 'package:tictic/partials/team/transactions_list.dart';
 import 'package:tictic/routes.dart';
+import 'package:tictic/widgets/team/transactions_list.dart';
 
 import 'team_card.dart';
 
+@immutable
 class TeamOverview extends StatelessWidget {
   final Team team;
 

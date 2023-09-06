@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:tictic/partials/navigation/home_header.dart';
-import 'package:tictic/partials/team/team_overview.dart';
 import 'package:tictic/style/colors.dart';
 import 'package:tictic/style/font.dart';
+import 'package:tictic/widgets/navigation/home_header.dart';
+import 'package:tictic/widgets/team/team_overview.dart';
 
 import '../models/team.dart';
-import '../partials/navigation/sidebar.dart';
-import '../partials/slider/info_slider.dart';
 import '../style/spacings.dart';
+import '../widgets/navigation/sidebar.dart';
+import '../widgets/slider/info_slider.dart';
 
+@immutable
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
 

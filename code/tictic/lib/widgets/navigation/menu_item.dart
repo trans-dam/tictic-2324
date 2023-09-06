@@ -4,6 +4,7 @@ import '../../style/colors.dart';
 import '../../style/font.dart';
 import '../../style/spacings.dart';
 
+@immutable
 class MenuItem extends StatelessWidget {
   final String title;
   final IconData icon;

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:tictic/partials/navigation/menu_item.dart';
 import 'package:tictic/routes.dart';
 import 'package:tictic/style/colors.dart';
 import 'package:tictic/style/spacings.dart';
+import 'package:tictic/widgets/navigation/menu_item.dart';
 
 import '../../style/font.dart';
 
+@immutable
 class Sidebar extends StatelessWidget {
   const Sidebar({super.key});
 

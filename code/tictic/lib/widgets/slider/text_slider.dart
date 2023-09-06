@@ -4,6 +4,7 @@ import '../../style/font.dart';
 import '../../style/spacings.dart';
 import 'line_item.dart';
 
+@immutable
 class TextSlider extends StatefulWidget {
   const TextSlider({super.key});
 
@@ -40,7 +41,8 @@ class _TextSliderState extends State<TextSlider> {
               },
               itemBuilder: (context, index) {
                 return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal:kHorizontalPadding),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: kHorizontalPadding),
                   child: Text(
                     items[index],
                     textAlign: TextAlign.center,
@@ -50,7 +52,7 @@ class _TextSliderState extends State<TextSlider> {
               },
             )),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal:kHorizontalPaddingL),
+          padding: const EdgeInsets.symmetric(horizontal: kHorizontalPaddingL),
           child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: items.map((e) {

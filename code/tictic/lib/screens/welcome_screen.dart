@@ -3,10 +3,11 @@ import 'package:tictic/screens/welcome_template_screen.dart';
 
 import '../routes.dart';
 import '../style/spacings.dart';
-import '../partials/form/main_button.dart';
-import '../partials/form/text_diver.dart';
-import '../partials/slider/text_slider.dart';
+import '../widgets/form/main_button.dart';
+import '../widgets/form/text_diver.dart';
+import '../widgets/slider/text_slider.dart';
 
+@immutable
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
 
@@ -26,7 +27,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 onPressed: () => {Navigator.pushNamed(context, kHomeRoute)},
                 text: 'Continuer sans compte'),
             const Padding(
-              padding: EdgeInsets.symmetric(horizontal:kHorizontalPadding),
+              padding: EdgeInsets.symmetric(horizontal: kHorizontalPadding),
               child: TextDivider(),
             ),
             SingleChildScrollView(

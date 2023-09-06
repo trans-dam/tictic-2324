@@ -6,6 +6,7 @@ import '../../style/colors.dart';
 import '../../style/font.dart';
 import '../../style/spacings.dart';
 
+@immutable
 class InfoSlider extends StatelessWidget {
   const InfoSlider({
     super.key,

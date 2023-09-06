@@ -1,18 +1,18 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
-import 'package:tictic/partials/navigation/home_header.dart';
-import 'package:tictic/partials/team/member_count.dart';
 import 'package:tictic/style/colors.dart';
+import 'package:tictic/widgets/navigation/home_header.dart';
 
 import '../models/team.dart';
-import '../partials/navigation/sidebar.dart';
-import '../partials/team/big_stat.dart';
-import '../partials/team/tags.dart';
 import '../style/font.dart';
+import '../style/others.dart';
 import '../style/spacings.dart';
+import '../widgets/team/big_stat_container.dart';
+import '../widgets/team/team_header_meta_data.dart';
+import '../widgets/team/transaction_card.dart';
 
+@immutable
 class TeamScreen extends StatelessWidget {
   final Team team;
 
@@ -21,66 +21,115 @@ class TeamScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: kBackgroundColor,
-      drawer: const Sidebar(),
-      body: SingleChildScrollView(
-          child: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            HomeHeader(
-              icon: Icons.arrow_back,
-              onTap: () {
-                Navigator.pop(context);
-              },
-              picturePath: team.picturePath,
-            ),
-            const SizedBox(
-              height: kVerticalPaddingL,
-            ),
-            Text(
-              team.title,
-              style: kTextSideBar,
-            ),
-            const SizedBox(
-              height: kVerticalPaddingS,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                MemberCount(count: team.users.length + 1),
-                const SizedBox(
-                  width: kHorizontalPadding,
-                ),
-                Text(
-                  // TODO : replace 'fr' by a variable
-                  "Depuis le ${DateFormat.yMMMMd('fr').format(team.startDate)}",
-                  style: kSmallText,
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: kVerticalPaddingS,
-            ),
-            Tags(tags: team.tags),
-            const SizedBox(
-              height: kVerticalPaddingL,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                BigStat(label: 'Total à payer', value: team.getSum()),
-                const SizedBox(
-                  width: kHorizontalPadding,
-                ),
-                BigStat(
-                    label: 'Total en cours',
-                    value: Random().nextInt(100).toDouble()),
-              ],
-            )
-          ],
+      floatingActionButton: Container(
+        padding: const EdgeInsets.symmetric(
+            vertical: kVerticalPaddingS, horizontal: kHorizontalPadding),
+        decoration: BoxDecoration(
+            color: kMainColor,
+            borderRadius: BorderRadius.circular(30),
+            boxShadow: [kShadow]),
+        child: Text(
+          'Ajouter une transaction',
+          style: kTextDiverStyle.apply(color: Colors.white),
         ),
-      )),
+      ),
+      backgroundColor: kBackgroundColor,
+      body: SafeArea(
+        bottom: false,
+        child: DefaultTabController(
+          length: 2,
+          child: Flex(
+            direction: Axis.vertical,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              HomeHeader(
+                icon: Icons.arrow_back,
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                picturePath: team.picturePath,
+                small: true,
+              ),
+              TeamHeaderMetaData(
+                title: team.title,
+                userCount: team.users.length + 1,
+                startDate: team.startDate,
+                tags: team.tags,
+              ),
+              Stack(
+                alignment: Alignment.bottomCenter,
+                children: [
+                  BigStatContainer(
+                    label1: 'Total à payer',
+                    label2: 'Total en cours',
+                    value1: team.getSum(),
+                    value2: Random().nextInt(100).toDouble(),
+                  ),
+                  Container(
+                    height: kVerticalPaddingXL,
+                    padding: const EdgeInsets.symmetric(
+                        vertical: kVerticalPaddingS,
+                        horizontal: kHorizontalPadding),
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(30),
+                          topRight: Radius.circular(30)),
+                      color: Colors.white,
+                    ),
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: kBackgroundColor,
+                          borderRadius: BorderRadius.circular(16)),
+                      child: TabBar(
+                        enableFeedback: true,
+                        indicatorWeight: 0,
+                        indicatorSize: TabBarIndicatorSize.tab,
+                        labelStyle: kTextTabItem,
+                        labelColor: kMainColor,
+                        labelPadding: const EdgeInsets.symmetric(
+                            vertical: 0, horizontal: 0),
+                        indicator: BoxDecoration(
+                            color: kTertiaryColor,
+                            borderRadius: BorderRadius.circular(16)),
+                        dividerColor: Colors.transparent,
+                        tabs: const [
+                          Tab(text: 'Transactions'),
+                          Tab(text: 'Équilibre'),
+                        ],
+                      ),
+                    ),
+                  )
+                ],
+              ),
+              Expanded(
+                child: TabBarView(
+                  children: [
+                    Container(
+                      color: Colors.white,
+                      padding: const EdgeInsets.only(
+                          left: kHorizontalPadding,
+                          right: kHorizontalPadding,
+                          top: kVerticalPadding),
+                      child: Column(
+                        children: team.transactions
+                                ?.map((transaction) => TransactionCard(
+                                      transaction: transaction,
+                                    ))
+                                .toList() ??
+                            // TODO à remplacer par un widget de type "empty state"
+                            [const Text('Aucune transaction')],
+                      ),
+                    ),
+                    Container(
+                        color: Colors.white,
+                        child: Center(child: const Text('Cooming soon')))
+                  ],
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

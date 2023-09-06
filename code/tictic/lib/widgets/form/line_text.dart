@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../style/colors.dart';
 
+@immutable
 class LineText extends StatelessWidget {
   const LineText({super.key});
 

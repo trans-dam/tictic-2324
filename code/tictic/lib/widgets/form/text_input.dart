@@ -4,6 +4,7 @@ import '../../style/colors.dart';
 import '../../style/font.dart';
 import '../../style/spacings.dart';
 
+@immutable
 class TextInput extends StatelessWidget {
   final IconData prefixIcon;
   final String hintText;
@@ -72,7 +73,7 @@ class TextInput extends StatelessWidget {
             floatingLabelBehavior: FloatingLabelBehavior.always,
             hintText: hintText,
             errorStyle: kErrorStyle,
-            hintStyle:kHintStyle,
+            hintStyle: kHintStyle,
           ),
         ),
         const SizedBox(

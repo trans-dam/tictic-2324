@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:tictic/screens/welcome_template_screen.dart';
-import 'package:tictic/partials/form/password_input.dart';
-import 'package:tictic/partials/form/text_input.dart';
+import 'package:tictic/widgets/form/password_input.dart';
+import 'package:tictic/widgets/form/text_input.dart';
 
-import '../Helpers/validations.dart';
 import '../routes.dart';
 import '../style/font.dart';
 import '../style/spacings.dart';
-import '../partials/form/main_button.dart';
+import '../utils/validations.dart';
+import '../widgets/form/main_button.dart';
 
+@immutable
 class RegisterScreen extends StatefulWidget {
   final _registerFormKey = GlobalKey<FormState>();
 

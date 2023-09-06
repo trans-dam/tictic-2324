@@ -6,13 +6,20 @@ import '../../style/font.dart';
 import '../../style/others.dart';
 import '../../style/spacings.dart';
 
+@immutable
 class HomeHeader extends StatelessWidget {
   final String? picturePath;
   final IconData icon;
   final GestureTapCallback? onTap;
+  final bool small;
 
-  const HomeHeader(
-      {required this.icon, required this.onTap, this.picturePath, super.key});
+  const HomeHeader({
+    required this.icon,
+    required this.onTap,
+    this.picturePath,
+    this.small = false,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -50,8 +57,8 @@ class HomeHeader extends StatelessWidget {
             child: Image.asset(
               picturePath ?? 'assets/img/dog.png',
               fit: BoxFit.cover,
-              width: 108,
-              height: 108,
+              width: small ? kProfileSizeSmall : kProfileSize,
+              height: small ? kProfileSizeSmall : kProfileSize,
             ),
           ),
         ),

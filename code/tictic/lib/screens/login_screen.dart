@@ -1,14 +1,15 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:tictic/screens/welcome_template_screen.dart';
-import 'package:tictic/partials/form/password_input.dart';
-import 'package:tictic/partials/form/text_input.dart';
+import 'package:tictic/widgets/form/password_input.dart';
+import 'package:tictic/widgets/form/text_input.dart';
 
 import '../routes.dart';
 import '../style/font.dart';
 import '../style/spacings.dart';
-import '../partials/form/main_button.dart';
+import '../widgets/form/main_button.dart';
 
+@immutable
 class LoginScreen extends StatefulWidget {
   final _loginFormKey = GlobalKey<FormState>();
 
@@ -23,7 +24,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return WelcomeScreenTemplate(
         flexibleContent: Padding(
-          padding: const EdgeInsets.symmetric(horizontal:kHorizontalPadding),
+          padding: const EdgeInsets.symmetric(horizontal: kHorizontalPadding),
           child: Form(
             key: widget._loginFormKey,
             child: Column(

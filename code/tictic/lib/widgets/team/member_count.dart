@@ -2,19 +2,20 @@ import 'package:flutter/material.dart';
 
 import '../../style/font.dart';
 
-class Tags extends StatelessWidget {
-  const Tags({
-    super.key,
-    required this.tags,
-  });
+@immutable
+class MemberCount extends StatelessWidget {
+  final int count;
 
-  final List<String>? tags;
+  const MemberCount({
+    required this.count,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Text(
-      '#${tags?.join('#') ?? 'Tictic'}',
-      style: kHintStyle,
+      '$count participants',
+      style: kSmallText,
     );
   }
 }

@@ -5,6 +5,7 @@ import 'package:tictic/style/colors.dart';
 import '../style/others.dart';
 import '../style/spacings.dart';
 
+@immutable
 class WelcomeScreenTemplate extends StatefulWidget {
   final Widget flexibleContent;
   final Widget shrinkContent;

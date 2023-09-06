@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:tictic/partials/form/text_input.dart';
+import 'package:tictic/widgets/form/text_input.dart';
 
-import '../../Helpers/validations.dart';
+import '../../utils/validations.dart';
 import '../../style/colors.dart';
 
+@immutable
 class PasswordInput extends StatefulWidget {
   const PasswordInput({super.key});
 
@@ -39,6 +40,4 @@ class _PasswordInputState extends State<PasswordInput> {
       ),
     );
   }
-
-
 }

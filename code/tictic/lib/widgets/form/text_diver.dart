@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:tictic/partials/form/line_text.dart';
+import 'package:tictic/widgets/form/line_text.dart';
 
 import '../../style/font.dart';
 import '../../style/spacings.dart';
 
+@immutable
 class TextDivider extends StatelessWidget {
   const TextDivider({super.key});
 
@@ -16,9 +17,8 @@ class TextDivider extends StatelessWidget {
           LineText(),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: kHorizontalPadding),
-            child: Text('Ou',
-                textAlign: TextAlign.center,
-                style: kTextDiverStyle),
+            child:
+                Text('Ou', textAlign: TextAlign.center, style: kTextDiverStyle),
           ),
           LineText(),
         ],

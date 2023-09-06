@@ -7,6 +7,7 @@ import '../../style/font.dart';
 import '../../style/others.dart';
 import '../../style/spacings.dart';
 
+@immutable
 class TransactionCard extends StatelessWidget {
   final Transaction transaction;
 

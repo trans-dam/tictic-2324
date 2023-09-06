@@ -4,6 +4,7 @@ import 'package:tictic/style/spacings.dart';
 import '../../style/colors.dart';
 import '../../style/others.dart';
 
+@immutable
 class MainButton extends StatelessWidget {
   final VoidCallback onPressed;
   final String text;
