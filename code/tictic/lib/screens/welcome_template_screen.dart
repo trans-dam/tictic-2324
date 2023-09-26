@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:tictic/style/colors.dart';
 
-import '../style/others.dart';
-import '../style/spacings.dart';
+import '../styles/colors.dart';
+import '../styles/others.dart';
+import '../styles/spacings.dart';
 
 @immutable
 class WelcomeScreenTemplate extends StatefulWidget {
@@ -39,27 +39,27 @@ class _WelcomeScreenTemplateState extends State<WelcomeScreenTemplate> {
           child: SafeArea(
             child: Stack(
               children: [
-                !widget.isFirstScreen
-                    ? Padding(
-                        padding: const EdgeInsets.only(
-                            left: kHorizontalPadding, top: kVerticalPadding),
-                        child: GestureDetector(
-                          onTap: () => {Navigator.pop(context)},
-                          child: Container(
-                            padding: const EdgeInsets.symmetric(
-                                vertical: kVerticalPaddingS,
-                                horizontal: kHorizontalPaddingS),
-                            decoration: BoxDecoration(
-                                color: kBackgroundColor,
-                                borderRadius: BorderRadius.circular(30),
-                                border:
-                                    Border.all(color: kTertiaryColor, width: 2),
-                                boxShadow: [kShadow]),
-                            child: const Icon(Icons.arrow_back),
-                          ),
-                        ),
-                      )
-                    : Container(),
+                if (!widget.isFirstScreen)
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        left: kHorizontalPadding, top: kVerticalPadding),
+                    child: GestureDetector(
+                      onTap: () => {Navigator.pop(context)},
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: kVerticalPaddingS,
+                            horizontal: kHorizontalPaddingS),
+                        decoration: BoxDecoration(
+                            color: kBackgroundColor,
+                            borderRadius: BorderRadius.circular(30),
+                            border: Border.all(color: kTertiaryColor, width: 2),
+                            boxShadow: [kShadow]),
+                        child: const Icon(Icons.arrow_back),
+                      ),
+                    ),
+                  )
+                else
+                  Container(),
                 Padding(
                   padding: const EdgeInsets.only(
                       bottom: kVerticalPaddingL, top: kVerticalPadding * 3),

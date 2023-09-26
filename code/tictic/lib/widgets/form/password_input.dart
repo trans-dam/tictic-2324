@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tictic/widgets/form/text_input.dart';
 
+import '../../styles/colors.dart';
 import '../../utils/validations.dart';
-import '../../style/colors.dart';
 
 @immutable
 class PasswordInput extends StatefulWidget {

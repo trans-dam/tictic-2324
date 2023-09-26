@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:tictic/style/colors.dart';
-import 'package:tictic/style/font.dart';
 import 'package:tictic/widgets/navigation/home_header.dart';
 import 'package:tictic/widgets/team/team_overview.dart';
 
 import '../models/team.dart';
-import '../style/spacings.dart';
+import '../styles/colors.dart';
+import '../styles/font.dart';
+import '../styles/spacings.dart';
 import '../widgets/navigation/sidebar.dart';
 import '../widgets/slider/info_slider.dart';
 

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tictic/screens/welcome_template_screen.dart';
 
 import '../routes.dart';
-import '../style/spacings.dart';
+import '../styles/spacings.dart';
 import '../widgets/form/main_button.dart';
 import '../widgets/form/text_diver.dart';
 import '../widgets/slider/text_slider.dart';

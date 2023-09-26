@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:tictic/routes.dart';
-import 'package:tictic/style/colors.dart';
-import 'package:tictic/style/spacings.dart';
 import 'package:tictic/widgets/navigation/menu_item.dart';
 
-import '../../style/font.dart';
+import '../../styles/colors.dart';
+import '../../styles/font.dart';
+import '../../styles/spacings.dart';
 
 @immutable
 class Sidebar extends StatelessWidget {

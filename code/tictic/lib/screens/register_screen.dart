@@ -4,8 +4,8 @@ import 'package:tictic/widgets/form/password_input.dart';
 import 'package:tictic/widgets/form/text_input.dart';
 
 import '../routes.dart';
-import '../style/font.dart';
-import '../style/spacings.dart';
+import '../styles/font.dart';
+import '../styles/spacings.dart';
 import '../utils/validations.dart';
 import '../widgets/form/main_button.dart';
 

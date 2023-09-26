@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../style/font.dart';
-import '../../style/spacings.dart';
+import '../../styles/font.dart';
+import '../../styles/spacings.dart';
 import 'line_item.dart';
 
 @immutable

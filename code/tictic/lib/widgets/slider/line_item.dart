@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:tictic/style/colors.dart';
-import 'package:tictic/style/others.dart';
-import 'package:tictic/style/spacings.dart';
+
+import '../../styles/colors.dart';
+import '../../styles/others.dart';
+import '../../styles/spacings.dart';
 
 @immutable
 class LineItem extends StatelessWidget {
@@ -13,7 +14,7 @@ class LineItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: kVerticalPadding*2),
+      padding: const EdgeInsets.symmetric(vertical: kVerticalPadding * 2),
       child: Container(
           height: 3,
           width: width,

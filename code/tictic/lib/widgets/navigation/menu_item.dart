@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../style/colors.dart';
-import '../../style/font.dart';
-import '../../style/spacings.dart';
+import '../../styles/colors.dart';
+import '../../styles/font.dart';
+import '../../styles/spacings.dart';
 
 @immutable
 class MenuItem extends StatelessWidget {

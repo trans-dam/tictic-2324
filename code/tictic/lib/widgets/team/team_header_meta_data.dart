@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:tictic/widgets/team/tags.dart';
 
-import '../../style/font.dart';
-import '../../style/spacings.dart';
+import '../../styles/font.dart';
+import '../../styles/spacings.dart';
 import 'member_count.dart';
 
 @immutable
@@ -52,7 +52,7 @@ class TeamHeaderMetaData extends StatelessWidget {
         const SizedBox(
           height: kVerticalPaddingS,
         ),
-        Tags(tags: this.tags),
+        Tags(tags: tags),
         const SizedBox(
           height: kVerticalPaddingL,
         ),

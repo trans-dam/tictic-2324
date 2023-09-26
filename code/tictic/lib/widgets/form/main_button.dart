@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:tictic/style/spacings.dart';
 
-import '../../style/colors.dart';
-import '../../style/others.dart';
+import '../../styles/colors.dart';
+import '../../styles/others.dart';
+import '../../styles/spacings.dart';
 
 @immutable
 class MainButton extends StatelessWidget {

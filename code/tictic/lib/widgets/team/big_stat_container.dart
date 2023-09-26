@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../style/spacings.dart';
+import '../../styles/spacings.dart';
 import 'big_stat.dart';
 
 @immutable

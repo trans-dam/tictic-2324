@@ -1,13 +1,13 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:tictic/style/colors.dart';
 import 'package:tictic/widgets/navigation/home_header.dart';
 
 import '../models/team.dart';
-import '../style/font.dart';
-import '../style/others.dart';
-import '../style/spacings.dart';
+import '../styles/colors.dart';
+import '../styles/font.dart';
+import '../styles/others.dart';
+import '../styles/spacings.dart';
 import '../widgets/team/big_stat_container.dart';
 import '../widgets/team/team_header_meta_data.dart';
 import '../widgets/team/transaction_card.dart';
@@ -122,7 +122,7 @@ class TeamScreen extends StatelessWidget {
                     ),
                     Container(
                         color: Colors.white,
-                        child: Center(child: const Text('Cooming soon')))
+                        child: const Center(child: Text('Cooming soon')))
                   ],
                 ),
               )

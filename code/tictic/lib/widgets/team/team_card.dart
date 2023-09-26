@@ -6,9 +6,9 @@ import 'package:tictic/models/team.dart';
 import 'package:tictic/widgets/team/member_count.dart';
 import 'package:tictic/widgets/team/tags.dart';
 
-import '../../style/font.dart';
-import '../../style/others.dart';
-import '../../style/spacings.dart';
+import '../../styles/font.dart';
+import '../../styles/others.dart';
+import '../../styles/spacings.dart';
 
 @immutable
 class TeamCard extends StatelessWidget {

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../style/colors.dart';
-import '../../style/font.dart';
-import '../../style/others.dart';
-import '../../style/spacings.dart';
+import '../../styles/colors.dart';
+import '../../styles/font.dart';
+import '../../styles/others.dart';
+import '../../styles/spacings.dart';
 
 @immutable
 class HomeHeader extends StatelessWidget {

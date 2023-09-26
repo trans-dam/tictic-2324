@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../style/font.dart';
+import '../../styles/font.dart';
+
 
 @immutable
 class MemberCount extends StatelessWidget {

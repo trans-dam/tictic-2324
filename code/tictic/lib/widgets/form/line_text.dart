@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../style/colors.dart';
+import '../../styles/colors.dart';
 
 @immutable
 class LineText extends StatelessWidget {
