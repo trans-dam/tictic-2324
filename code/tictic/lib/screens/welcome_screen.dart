@@ -10,16 +10,11 @@ import '../widgets/form/text_diver.dart';
 import '../widgets/slider/text_slider.dart';
 
 @immutable
-class WelcomeScreen extends StatefulWidget {
+class WelcomeScreen extends StatelessWidget {
   static const String routeName = '/welcome';
 
   const WelcomeScreen({super.key});
 
-  @override
-  State<WelcomeScreen> createState() => _WelcomeScreenState();
-}
-
-class _WelcomeScreenState extends State<WelcomeScreen> {
   @override
   Widget build(BuildContext context) {
     return WelcomeScreenTemplate(

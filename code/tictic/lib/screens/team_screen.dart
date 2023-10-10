@@ -27,7 +27,7 @@ class TeamScreen extends StatelessWidget {
             vertical: kVerticalPaddingS, horizontal: kHorizontalPadding),
         decoration: BoxDecoration(
             color: kMainColor,
-            borderRadius: BorderRadius.circular(30),
+            borderRadius: BorderRadius.circular(kBorderRadius),
             boxShadow: [kShadow]),
         child: Text(
           'Ajouter une transaction',

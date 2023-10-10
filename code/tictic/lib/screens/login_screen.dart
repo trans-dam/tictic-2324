@@ -11,24 +11,19 @@ import '../styles/spacings.dart';
 import '../widgets/form/main_button.dart';
 
 @immutable
-class LoginScreen extends StatefulWidget {
+class LoginScreen extends StatelessWidget {
   static const String routeName = '/login';
   final _loginFormKey = GlobalKey<FormState>();
 
   LoginScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
-}
-
-class _LoginScreenState extends State<LoginScreen> {
-  @override
   Widget build(BuildContext context) {
     return WelcomeScreenTemplate(
         flexibleContent: Padding(
           padding: const EdgeInsets.symmetric(horizontal: kHorizontalPadding),
           child: Form(
-            key: widget._loginFormKey,
+            key: _loginFormKey,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -52,8 +47,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   children: [
                     MainButton(
                         onPressed: () => {
-                              if (widget._loginFormKey.currentState != null &&
-                                  widget._loginFormKey.currentState!.validate())
+                              if (_loginFormKey.currentState != null &&
+                                  _loginFormKey.currentState!.validate())
                                 {
                                   Navigator.popAndPushNamed(
                                       context, HomeScreen.routeName)

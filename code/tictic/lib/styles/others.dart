@@ -7,5 +7,5 @@ final kShadow = BoxShadow(
   offset: const Offset(0, 6), // changes position of shadow
 );
 
-const borderWidth = 2.0;
-const borderRadius = 30.0;
+const kBorderWidth = 2.0;
+const kBorderRadius = 30.0;

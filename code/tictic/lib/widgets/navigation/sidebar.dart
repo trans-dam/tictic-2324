@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tictic/screens/home_screen.dart';
+import 'package:tictic/screens/welcome_screen.dart';
 import 'package:tictic/widgets/navigation/menu_item.dart';
 
 import '../../styles/colors.dart';
@@ -65,7 +66,7 @@ class Sidebar extends StatelessWidget {
               icon: Icons.logout,
               title: 'Je me déconnecte',
               onTap: () {
-                Navigator.pushNamed(context, HomeScreen.routeName);
+                Navigator.pushNamed(context, WelcomeScreen.routeName);
               },
             ),
           ]),

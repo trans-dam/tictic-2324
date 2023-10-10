@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../styles/colors.dart';
 import '../../styles/font.dart';
+import '../../styles/others.dart';
 import '../../styles/spacings.dart';
 
 @immutable
@@ -63,10 +64,11 @@ class TextInput extends StatelessWidget {
             isDense: true,
             contentPadding: const EdgeInsets.symmetric(
                 horizontal: kHorizontalPadding, vertical: kVerticalPadding),
-            prefixIcon: Icon(prefixIcon),
+            // TODO : add border radius
+            prefixIcon: Container(child: Icon(prefixIcon)),
             suffixIcon: suffixIcon,
             border: const OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(30)),
+              borderRadius: BorderRadius.all(Radius.circular(kBorderRadius)),
             ),
             filled: true,
             fillColor: kBackgroundColor,

@@ -39,9 +39,9 @@ class HomeHeader extends StatelessWidget {
                         horizontal: kHorizontalPaddingS),
                     decoration: BoxDecoration(
                         color: kBackgroundColor,
-                        borderRadius: BorderRadius.circular(borderRadius),
+                        borderRadius: BorderRadius.circular(kBorderRadius),
                         border: Border.all(
-                            color: kTertiaryColor, width: borderWidth),
+                            color: kTertiaryColor, width: kBorderWidth),
                         boxShadow: [kShadow]),
                     child: Icon(icon)),
               ),

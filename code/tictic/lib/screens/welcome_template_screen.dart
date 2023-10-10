@@ -52,8 +52,9 @@ class _WelcomeScreenTemplateState extends State<WelcomeScreenTemplate> {
                             horizontal: kHorizontalPaddingS),
                         decoration: BoxDecoration(
                             color: kBackgroundColor,
-                            borderRadius: BorderRadius.circular(30),
-                            border: Border.all(color: kTertiaryColor, width: 2),
+                            borderRadius: BorderRadius.circular(kBorderRadius),
+                            border: Border.all(
+                                color: kTertiaryColor, width: kBorderWidth),
                             boxShadow: [kShadow]),
                         child: const Icon(Icons.arrow_back),
                       ),

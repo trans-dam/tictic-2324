@@ -11,24 +11,19 @@ import '../utils/validations.dart';
 import '../widgets/form/main_button.dart';
 
 @immutable
-class RegisterScreen extends StatefulWidget {
+class RegisterScreen extends StatelessWidget {
   static const String routeName = '/register';
   final _registerFormKey = GlobalKey<FormState>();
 
   RegisterScreen({super.key});
 
   @override
-  State<RegisterScreen> createState() => _RegisterScreenState();
-}
-
-class _RegisterScreenState extends State<RegisterScreen> {
-  @override
   Widget build(BuildContext context) {
     return WelcomeScreenTemplate(
         flexibleContent: Padding(
           padding: const EdgeInsets.symmetric(horizontal: kHorizontalPadding),
           child: Form(
-            key: widget._registerFormKey,
+            key: _registerFormKey,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -63,10 +58,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   children: [
                     MainButton(
                         onPressed: () => {
-                              if (widget._registerFormKey.currentState !=
-                                      null &&
-                                  widget._registerFormKey.currentState!
-                                      .validate())
+                              if (_registerFormKey.currentState != null &&
+                                  _registerFormKey.currentState!.validate())
                                 {
                                   Navigator.popAndPushNamed(
                                       context, HomeScreen.routeName)

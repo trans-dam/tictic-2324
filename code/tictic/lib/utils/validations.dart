@@ -23,8 +23,8 @@ String? validateName(value, fieldName) {
 String? validatePassword(value) {
   if (value == null || value.isEmpty) {
     return 'Le mot de passe ne peut pas être vide';
-  } else if (value.length < 9) {
-    return 'Le mot de passe doit contenir au moins 8 caractères';
+  } else if (value.length < 10) {
+    return 'Le mot de passe doit contenir au moins 9 caractères';
   }
   return null;
 }

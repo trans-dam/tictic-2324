@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:tictic/routes.dart';
+import 'package:tictic/screens/home_screen.dart';
 import 'package:tictic/styles/colors.dart';
 
 void main() {
@@ -33,6 +34,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       routes: router,
+      initialRoute: HomeScreen.routeName,
     );
   }
 }
