@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:tictic/screens/welcome_screen.dart';
 
 import '../styles/colors.dart';
 import '../styles/others.dart';
@@ -28,9 +29,7 @@ class _WelcomeScreenTemplateState extends State<WelcomeScreenTemplate> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          height: MediaQuery.of(context).orientation == Orientation.portrait
-              ? MediaQuery.of(context).size.height
-              : MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
           decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage("assets/img/back1.png"),
@@ -69,11 +68,21 @@ class _WelcomeScreenTemplateState extends State<WelcomeScreenTemplate> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     mainAxisSize: MainAxisSize.max,
                     children: <Widget>[
-                      SvgPicture.asset(
-                        'assets/icons/logo.svg',
-                        semanticsLabel: 'Logo TicTic',
-                        height: MediaQuery.of(context).size.height *
-                            kLogoRatioPercentage,
+                      GestureDetector(
+                        onTap: () => {
+                          if (ModalRoute.of(context)?.settings.name !=
+                              WelcomeScreen.routeName)
+                            {
+                              Navigator.popAndPushNamed(
+                                  context, WelcomeScreen.routeName)
+                            }
+                        },
+                        child: SvgPicture.asset(
+                          'assets/icons/logo.svg',
+                          semanticsLabel: 'Logo TicTic',
+                          height: MediaQuery.of(context).size.height *
+                              kLogoRatioPercentage,
+                        ),
                       ),
                       widget.flexibleContent,
                       widget.shrinkContent,

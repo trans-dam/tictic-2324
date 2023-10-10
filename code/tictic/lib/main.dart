@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:tictic/routes.dart';
-import 'package:tictic/screens/home_screen.dart';
 import 'package:tictic/styles/colors.dart';
 
 void main() {
@@ -13,7 +12,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -33,8 +31,7 @@ class MyApp extends StatelessWidget {
           dense: true,
         ),
       ),
-      routes: router,
-      initialRoute: HomeScreen.routeName,
+      routes: routes,
     );
   }
 }

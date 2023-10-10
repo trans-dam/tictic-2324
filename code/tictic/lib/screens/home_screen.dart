@@ -11,7 +11,7 @@ import '../widgets/slider/info_slider.dart';
 
 @immutable
 class HomeScreen extends StatelessWidget {
-  static const String routeName = '/home';
+  static const String routeName = '/';
 
   HomeScreen({super.key});
 

@@ -6,7 +6,7 @@ import 'package:tictic/screens/register_screen.dart';
 import 'package:tictic/screens/team_screen.dart';
 import 'package:tictic/screens/welcome_screen.dart';
 
-Map<String, WidgetBuilder> router = {
+Map<String, WidgetBuilder> routes = {
   HomeScreen.routeName: (context) => HomeScreen(),
   WelcomeScreen.routeName: (context) => const WelcomeScreen(),
   LoginScreen.routeName: (context) => LoginScreen(),

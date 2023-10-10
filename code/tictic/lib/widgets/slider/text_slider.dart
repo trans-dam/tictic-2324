@@ -31,7 +31,6 @@ class _TextSliderState extends State<TextSlider> {
         SizedBox(
             height: 60,
             child: PageView.builder(
-              scrollDirection: Axis.horizontal,
               controller: _pageController,
               itemCount: _items.length,
               onPageChanged: (index) {
@@ -56,7 +55,7 @@ class _TextSliderState extends State<TextSlider> {
           child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: _items.map((e) {
-                var currentIndex = _items.indexOf(e);
+                int currentIndex = _items.indexOf(e);
                 return GestureDetector(
                   behavior: HitTestBehavior.opaque,
                   onTap: () {
