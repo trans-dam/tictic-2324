@@ -13,7 +13,7 @@ class TextSlider extends StatefulWidget {
 }
 
 class _TextSliderState extends State<TextSlider> {
-  final items = [
+  final _items = [
     'L’harmonie financière dans vos groupes, en toute simplicité !',
     'Calculs instantanés, équité garantie avec TicTic !',
     'Calculs fastidieux ? Non merci. Optez pour la simplicité avec TicTic !',
@@ -33,7 +33,7 @@ class _TextSliderState extends State<TextSlider> {
             child: PageView.builder(
               scrollDirection: Axis.horizontal,
               controller: _pageController,
-              itemCount: items.length,
+              itemCount: _items.length,
               onPageChanged: (index) {
                 setState(() {
                   _index = index;
@@ -44,7 +44,7 @@ class _TextSliderState extends State<TextSlider> {
                   padding: const EdgeInsets.symmetric(
                       horizontal: kHorizontalPadding),
                   child: Text(
-                    items[index],
+                    _items[index],
                     textAlign: TextAlign.center,
                     style: kItalicText,
                   ),
@@ -55,8 +55,8 @@ class _TextSliderState extends State<TextSlider> {
           padding: const EdgeInsets.symmetric(horizontal: kHorizontalPaddingL),
           child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: items.map((e) {
-                var currentIndex = items.indexOf(e);
+              children: _items.map((e) {
+                var currentIndex = _items.indexOf(e);
                 return GestureDetector(
                   behavior: HitTestBehavior.opaque,
                   onTap: () {
@@ -70,7 +70,7 @@ class _TextSliderState extends State<TextSlider> {
                   },
                   child: LineItem(
                     width:
-                        MediaQuery.of(context).size.width / (2 * items.length),
+                        MediaQuery.of(context).size.width / (2 * _items.length),
                     isActivated: currentIndex == _index,
                   ),
                 );

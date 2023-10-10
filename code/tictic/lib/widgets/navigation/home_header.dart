@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../styles/colors.dart';
-import '../../styles/font.dart';
 import '../../styles/others.dart';
+import '../../styles/sizes.dart';
 import '../../styles/spacings.dart';
 
 @immutable
@@ -39,8 +39,9 @@ class HomeHeader extends StatelessWidget {
                         horizontal: kHorizontalPaddingS),
                     decoration: BoxDecoration(
                         color: kBackgroundColor,
-                        borderRadius: BorderRadius.circular(30),
-                        border: Border.all(color: kTertiaryColor, width: 2),
+                        borderRadius: BorderRadius.circular(borderRadius),
+                        border: Border.all(
+                            color: kTertiaryColor, width: borderWidth),
                         boxShadow: [kShadow]),
                     child: Icon(icon)),
               ),

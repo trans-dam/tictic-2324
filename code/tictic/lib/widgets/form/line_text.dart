@@ -8,13 +8,6 @@ class LineText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Flexible(
-      flex: 1,
-      child: Container(
-          height: 1,
-          decoration: const BoxDecoration(
-            color: kMainColor,
-          )),
-    );
+    return Flexible(child: Container(height: 1, color: kMainColor));
   }
 }

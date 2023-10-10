@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 
 import '../styles/colors.dart';
 import '../styles/others.dart';
+import '../styles/sizes.dart';
 import '../styles/spacings.dart';
 
 @immutable
@@ -70,7 +71,8 @@ class _WelcomeScreenTemplateState extends State<WelcomeScreenTemplate> {
                       SvgPicture.asset(
                         'assets/icons/logo.svg',
                         semanticsLabel: 'Logo TicTic',
-                        height: MediaQuery.of(context).size.height * 0.16,
+                        height: MediaQuery.of(context).size.height *
+                            kLogoRatioPercentage,
                       ),
                       widget.flexibleContent,
                       widget.shrinkContent,
