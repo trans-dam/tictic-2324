@@ -1,16 +1,18 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
+import 'package:tictic/screens/home_screen.dart';
+import 'package:tictic/screens/register_screen.dart';
 import 'package:tictic/screens/welcome_template_screen.dart';
 import 'package:tictic/widgets/form/password_input.dart';
 import 'package:tictic/widgets/form/text_input.dart';
 
-import '../routes.dart';
 import '../styles/font.dart';
 import '../styles/spacings.dart';
 import '../widgets/form/main_button.dart';
 
 @immutable
 class LoginScreen extends StatefulWidget {
+  static const String routeName = '/login';
   final _loginFormKey = GlobalKey<FormState>();
 
   LoginScreen({super.key});
@@ -52,7 +54,10 @@ class _LoginScreenState extends State<LoginScreen> {
                         onPressed: () => {
                               if (widget._loginFormKey.currentState != null &&
                                   widget._loginFormKey.currentState!.validate())
-                                {Navigator.popAndPushNamed(context, kHomeRoute)}
+                                {
+                                  Navigator.popAndPushNamed(
+                                      context, HomeScreen.routeName)
+                                }
                             },
                         text: 'Je me connecte'),
                   ],
@@ -62,7 +67,8 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
         ),
         shrinkContent: TextButton(
-            onPressed: () => {Navigator.pushNamed(context, kRegisterRoute)},
+            onPressed: () =>
+                {Navigator.pushNamed(context, RegisterScreen.routeName)},
             child: const Text(
               'Je n’ai pas encore de compte.\n\nCréer mon compte !',
               textAlign: TextAlign.center,

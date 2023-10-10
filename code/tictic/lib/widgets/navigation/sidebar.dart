@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tictic/routes.dart';
+import 'package:tictic/screens/home_screen.dart';
 import 'package:tictic/widgets/navigation/menu_item.dart';
 
 import '../../styles/colors.dart';
@@ -37,35 +37,35 @@ class Sidebar extends StatelessWidget {
               icon: Icons.settings,
               title: 'Réglages',
               onTap: () {
-                Navigator.pushNamed(context, kSettingRoute);
+                Navigator.pushNamed(context, HomeScreen.routeName);
               },
             ),
             MenuItem(
               icon: Icons.groups,
               title: 'Créer un groupe',
               onTap: () {
-                Navigator.pushNamed(context, kAddTeamRoute);
+                Navigator.pushNamed(context, HomeScreen.routeName);
               },
             ),
             MenuItem(
               icon: Icons.group_add,
               title: 'Inviter une personne',
               onTap: () {
-                Navigator.pushNamed(context, kAddPersonRoute);
+                Navigator.pushNamed(context, HomeScreen.routeName);
               },
             ),
             MenuItem(
               icon: Icons.receipt_long,
               title: 'Ajouter une transaction',
               onTap: () {
-                Navigator.pushNamed(context, kAddTransactionRoute);
+                Navigator.pushNamed(context, HomeScreen.routeName);
               },
             ),
             MenuItem(
               icon: Icons.logout,
               title: 'Je me déconnecte',
               onTap: () {
-                Navigator.pushNamed(context, kWelcomeRoute);
+                Navigator.pushNamed(context, HomeScreen.routeName);
               },
             ),
           ]),

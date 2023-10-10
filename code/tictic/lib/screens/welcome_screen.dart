@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:tictic/screens/home_screen.dart';
+import 'package:tictic/screens/login_screen.dart';
+import 'package:tictic/screens/register_screen.dart';
 import 'package:tictic/screens/welcome_template_screen.dart';
 
-import '../routes.dart';
 import '../styles/spacings.dart';
 import '../widgets/form/main_button.dart';
 import '../widgets/form/text_diver.dart';
@@ -9,6 +11,8 @@ import '../widgets/slider/text_slider.dart';
 
 @immutable
 class WelcomeScreen extends StatefulWidget {
+  static const String routeName = '/welcome';
+
   const WelcomeScreen({super.key});
 
   @override
@@ -24,7 +28,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
         shrinkContent: Column(
           children: [
             MainButton(
-                onPressed: () => {Navigator.pushNamed(context, kHomeRoute)},
+                onPressed: () =>
+                    {Navigator.pushNamed(context, HomeScreen.routeName)},
                 text: 'Continuer sans compte'),
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: kHorizontalPadding),
@@ -37,7 +42,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 children: [
                   MainButton(
                     onPressed: () =>
-                        {Navigator.pushNamed(context, kLoginRoute)},
+                        {Navigator.pushNamed(context, LoginScreen.routeName)},
                     text: 'Je me connecte',
                     isSeedColor: false,
                   ),
@@ -45,8 +50,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     width: kHorizontalPadding,
                   ),
                   MainButton(
-                    onPressed: () =>
-                        {Navigator.pushNamed(context, kRegisterRoute)},
+                    onPressed: () => {
+                      Navigator.pushNamed(context, RegisterScreen.routeName)
+                    },
                     text: 'Créer mon compte',
                     isSeedColor: false,
                   )

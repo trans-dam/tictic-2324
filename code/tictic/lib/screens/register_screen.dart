@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:tictic/screens/home_screen.dart';
+import 'package:tictic/screens/login_screen.dart';
 import 'package:tictic/screens/welcome_template_screen.dart';
 import 'package:tictic/widgets/form/password_input.dart';
 import 'package:tictic/widgets/form/text_input.dart';
 
-import '../routes.dart';
 import '../styles/font.dart';
 import '../styles/spacings.dart';
 import '../utils/validations.dart';
@@ -11,6 +12,7 @@ import '../widgets/form/main_button.dart';
 
 @immutable
 class RegisterScreen extends StatefulWidget {
+  static const String routeName = '/register';
   final _registerFormKey = GlobalKey<FormState>();
 
   RegisterScreen({super.key});
@@ -65,7 +67,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                       null &&
                                   widget._registerFormKey.currentState!
                                       .validate())
-                                {Navigator.popAndPushNamed(context, kHomeRoute)}
+                                {
+                                  Navigator.popAndPushNamed(
+                                      context, HomeScreen.routeName)
+                                }
                             },
                         text: 'Créer mon compte'),
                   ],
@@ -75,7 +80,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
           ),
         ),
         shrinkContent: TextButton(
-          onPressed: () => {Navigator.pushNamed(context, kLoginRoute)},
+          onPressed: () =>
+              {Navigator.pushNamed(context, LoginScreen.routeName)},
           child: const Text('J’ai déjà un compte.\n\nJe me connecte !',
               textAlign: TextAlign.center, style: kButtonTextStyle),
         ));

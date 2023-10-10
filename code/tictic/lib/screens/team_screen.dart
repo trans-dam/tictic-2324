@@ -14,6 +14,7 @@ import '../widgets/team/transaction_card.dart';
 
 @immutable
 class TeamScreen extends StatelessWidget {
+  static const String routeName = '/team';
   final Team team;
 
   const TeamScreen({required this.team, super.key});
