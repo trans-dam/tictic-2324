@@ -23,6 +23,7 @@ class _PasswordInputState extends State<PasswordInput> {
       hintText: '******',
       labelText: 'Mot de passe',
       obscureText: _isObscure,
+      initialValue: "1234567890",
       keyboardType: TextInputType.visiblePassword,
       validator: validatePassword,
       suffixIcon: GestureDetector(

@@ -16,6 +16,8 @@ class TextInput extends StatelessWidget {
   final Widget? suffixIcon;
   final FormFieldValidator<String> validator;
 
+  final String? initialValue;
+
   const TextInput({
     super.key,
     required this.prefixIcon,
@@ -24,6 +26,7 @@ class TextInput extends StatelessWidget {
     required this.validator,
     this.keyboardType = TextInputType.text,
     this.obscureText = false,
+    this.initialValue,
     this.suffixIcon,
     this.tooltipMessage,
   });
@@ -37,6 +40,10 @@ class TextInput extends StatelessWidget {
             padding: const EdgeInsets.only(left: kHorizontalPadding),
             child: tooltipMessage != null
                 ? Tooltip(
+                    height: 30,
+                    onTriggered: () {
+                      print('triggered');
+                    },
                     message: tooltipMessage,
                     child: Row(
                       children: [
@@ -60,12 +67,13 @@ class TextInput extends StatelessWidget {
           keyboardType: keyboardType,
           obscureText: obscureText,
           validator: validator,
+          initialValue: initialValue,
           decoration: InputDecoration(
             isDense: true,
             contentPadding: const EdgeInsets.symmetric(
                 horizontal: kHorizontalPadding, vertical: kVerticalPadding),
             // TODO : add border radius
-            prefixIcon: Container(child: Icon(prefixIcon)),
+            prefixIcon: Icon(prefixIcon),
             suffixIcon: suffixIcon,
             border: const OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(kBorderRadius)),

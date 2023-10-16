@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:tictic/screens/home_screen.dart';
 import 'package:tictic/screens/welcome_screen.dart';
@@ -66,7 +67,13 @@ class Sidebar extends StatelessWidget {
               icon: Icons.logout,
               title: 'Je me déconnecte',
               onTap: () {
-                Navigator.pushNamed(context, WelcomeScreen.routeName);
+                try {
+                  FirebaseAuth.instance.signOut();
+                  Navigator.pushNamed(context, WelcomeScreen.routeName);
+                } on FirebaseAuthException catch (e) {
+                  SnackBar(
+                      content: Text("Erreur de déconnexion : ${e.message}"));
+                }
               },
             ),
           ]),

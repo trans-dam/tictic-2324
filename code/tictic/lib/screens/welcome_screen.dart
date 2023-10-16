@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:tictic/screens/home_screen.dart';
-import 'package:tictic/screens/login_screen.dart';
-import 'package:tictic/screens/register_screen.dart';
-import 'package:tictic/screens/welcome_template_screen.dart';
+import 'package:flutter_svg/svg.dart';
 
+import '../styles/sizes.dart';
 import '../styles/spacings.dart';
-import '../widgets/form/main_button.dart';
-import '../widgets/form/text_diver.dart';
+import '../widgets/navigation/welcome_navigation.dart';
 import '../widgets/slider/text_slider.dart';
 
 @immutable
@@ -17,44 +14,49 @@ class WelcomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return WelcomeScreenTemplate(
-        isFirstScreen: true,
-        flexibleContent: const TextSlider(),
-        shrinkContent: Column(
-          children: [
-            MainButton(
-                onPressed: () =>
-                    {Navigator.pushNamed(context, HomeScreen.routeName)},
-                text: 'Continuer sans compte'),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: kHorizontalPadding),
-              child: TextDivider(),
-            ),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  MainButton(
-                    onPressed: () =>
-                        {Navigator.pushNamed(context, LoginScreen.routeName)},
-                    text: 'Je me connecte',
-                    isSeedColor: false,
-                  ),
-                  const SizedBox(
-                    width: kHorizontalPadding,
-                  ),
-                  MainButton(
-                    onPressed: () => {
-                      Navigator.pushNamed(context, RegisterScreen.routeName)
-                    },
-                    text: 'Créer mon compte',
-                    isSeedColor: false,
-                  )
-                ],
-              ),
-            )
-          ],
-        ));
+    return Scaffold(
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/img/back1.png"),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: SafeArea(
+          child: Stack(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(
+                    bottom: kVerticalPaddingL, top: kVerticalPadding * 3),
+                child: Column(
+                  children: <Widget>[
+                    GestureDetector(
+                      onTap: () => {
+                        if (ModalRoute.of(context)?.settings.name !=
+                            WelcomeScreen.routeName)
+                          {
+                            Navigator.popAndPushNamed(
+                                context, WelcomeScreen.routeName)
+                          }
+                      },
+                      child: SvgPicture.asset(
+                        'assets/icons/logo.svg',
+                        semanticsLabel: 'Logo TicTic',
+                        height: MediaQuery.of(context).size.height *
+                            kLogoRatioPercentage,
+                      ),
+                    ),
+                    const SizedBox(height: kVerticalPaddingL),
+                    const Expanded(child: TextSlider()),
+                    const SizedBox(height: kVerticalPaddingL),
+                    const WelcomeNavigation(),
+                  ],
+                ),
+              )
+            ],
+          ),
+        ),
+      ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
   }
 }

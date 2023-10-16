@@ -1,7 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:tictic/screens/home_screen.dart';
+import 'package:tictic/screens/form_template_screen.dart';
 import 'package:tictic/screens/login_screen.dart';
-import 'package:tictic/screens/welcome_template_screen.dart';
 import 'package:tictic/widgets/form/password_input.dart';
 import 'package:tictic/widgets/form/text_input.dart';
 
@@ -32,6 +32,7 @@ class RegisterScreen extends StatelessWidget {
                     hintText: 'Alex',
                     labelText: 'Prénom',
                     keyboardType: TextInputType.name,
+                    initialValue: "Daniel",
                     validator: (value) {
                       return validateName(value, 'Prénom');
                     },
@@ -40,6 +41,7 @@ class RegisterScreen extends StatelessWidget {
                     prefixIcon: Icons.person,
                     hintText: 'Duchant',
                     labelText: 'Nom',
+                    initialValue: "Schreurs",
                     keyboardType: TextInputType.name,
                     validator: (value) {
                       return validateName(value, 'Nom');
@@ -49,6 +51,7 @@ class RegisterScreen extends StatelessWidget {
                   prefixIcon: Icons.mail,
                   hintText: 'exemple@mail.com',
                   labelText: 'Adresse mail',
+                  initialValue: "daniel.schreurs@hotmail.com",
                   keyboardType: TextInputType.emailAddress,
                   validator: validateEmail,
                 ),
@@ -57,14 +60,25 @@ class RegisterScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     MainButton(
-                        onPressed: () => {
-                              if (_registerFormKey.currentState != null &&
-                                  _registerFormKey.currentState!.validate())
-                                {
-                                  Navigator.popAndPushNamed(
-                                      context, HomeScreen.routeName)
-                                }
-                            },
+                        onPressed: () async {
+                          if (_registerFormKey.currentState != null &&
+                              _registerFormKey.currentState!.validate()) {
+                            try {
+                              await FirebaseAuth.instance
+                                  .createUserWithEmailAndPassword(
+                                      email: "daniel.schreurs@hotmail.com",
+                                      password: "1234567890");
+                            } on FirebaseAuthException catch (e) {
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(SnackBar(
+                                showCloseIcon: true,
+                                duration: const Duration(seconds: 10),
+                                // TODO : translate
+                                content: Text(e.message ?? 'Erreur inconnue'),
+                              ));
+                            }
+                          }
+                        },
                         text: 'Créer mon compte'),
                   ],
                 ),
