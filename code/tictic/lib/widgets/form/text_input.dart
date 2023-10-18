@@ -18,12 +18,15 @@ class TextInput extends StatelessWidget {
 
   final String? initialValue;
 
+  final ValueChanged<String>? onChanged;
+
   const TextInput({
     super.key,
     required this.prefixIcon,
     required this.hintText,
     required this.labelText,
     required this.validator,
+    this.onChanged,
     this.keyboardType = TextInputType.text,
     this.obscureText = false,
     this.initialValue,
@@ -41,9 +44,6 @@ class TextInput extends StatelessWidget {
             child: tooltipMessage != null
                 ? Tooltip(
                     height: 30,
-                    onTriggered: () {
-                      print('triggered');
-                    },
                     message: tooltipMessage,
                     child: Row(
                       children: [
@@ -68,6 +68,7 @@ class TextInput extends StatelessWidget {
           obscureText: obscureText,
           validator: validator,
           initialValue: initialValue,
+          onChanged: onChanged,
           decoration: InputDecoration(
             isDense: true,
             contentPadding: const EdgeInsets.symmetric(

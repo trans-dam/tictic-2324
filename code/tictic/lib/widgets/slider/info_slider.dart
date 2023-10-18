@@ -30,7 +30,6 @@ class InfoSlider extends StatelessWidget {
       height: 135,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        controller: PageController(viewportFraction: 0.3, initialPage: 0),
         itemCount: items.length,
         itemBuilder: (context, index) {
           return Row(
@@ -48,21 +47,16 @@ class InfoSlider extends StatelessWidget {
                   color: kBackgroundColor.withOpacity(0.7),
                   borderRadius: BorderRadius.circular(10),
                 ),
-                width: 170,
+                // TODO : replace with value..
+                width: MediaQuery.of(context).size.width > 390 ? 160 : 200,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Flexible(
-                      flex: 1,
-                      child: Text(
-                        items[index],
-                        textAlign: TextAlign.right,
-                        style: kTextSideBar,
-                      ),
-                    ),
-                    const SizedBox(
-                      height: kVerticalPadding,
+                    Text(
+                      items[index],
+                      textAlign: TextAlign.right,
+                      style: kTextSideBar,
                     ),
                     Text(
                       '${Random().nextInt(1000)}€',

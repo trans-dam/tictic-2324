@@ -7,12 +7,15 @@ import 'package:tictic/screens/home_screen.dart';
 import 'package:tictic/screens/welcome_screen.dart';
 import 'package:tictic/styles/colors.dart';
 
+import 'firebase_options.dart';
+
 Future<void> main() async {
   initializeDateFormatting();
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   await FirebaseAuth.instance.setLanguageCode("fr");
-
   runApp(const MyApp());
 }
 

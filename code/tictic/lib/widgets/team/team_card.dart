@@ -93,7 +93,7 @@ class TeamCard extends StatelessWidget {
                             count: team.users.length + 1,
                           ),
                           Text(
-                            "Depuis le ${DateFormat.yMd().format(team.startDate)}",
+                            "Depuis le ${DateFormat.yMd('fr').format(team.startDate)}",
                             style: kSmallText,
                           ),
                         ],

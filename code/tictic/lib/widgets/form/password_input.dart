@@ -6,7 +6,9 @@ import '../../utils/validations.dart';
 
 @immutable
 class PasswordInput extends StatefulWidget {
-  const PasswordInput({super.key});
+  final ValueChanged<String>? onChanged;
+
+  const PasswordInput({this.onChanged, super.key});
 
   @override
   State<PasswordInput> createState() => _PasswordInputState();
@@ -21,6 +23,7 @@ class _PasswordInputState extends State<PasswordInput> {
     return TextInput(
       prefixIcon: Icons.password,
       hintText: '******',
+      onChanged: widget.onChanged,
       labelText: 'Mot de passe',
       obscureText: _isObscure,
       initialValue: "1234567890",
