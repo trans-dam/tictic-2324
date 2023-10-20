@@ -63,6 +63,6 @@ class DefaultFirebaseOptions {
     messagingSenderId: '32784536270',
     projectId: 'tictic-2023',
     storageBucket: 'tictic-2023.appspot.com',
-    iosBundleId: 'tictic2',
+    iosBundleId: 'be.hepl.tictic',
   );
 }

@@ -23,37 +23,33 @@ class WelcomeScreen extends StatelessWidget {
           ),
         ),
         child: SafeArea(
-          child: Stack(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(
-                    bottom: kVerticalPaddingL, top: kVerticalPadding * 3),
-                child: Column(
-                  children: <Widget>[
-                    GestureDetector(
-                      onTap: () => {
-                        if (ModalRoute.of(context)?.settings.name !=
-                            WelcomeScreen.routeName)
-                          {
-                            Navigator.popAndPushNamed(
-                                context, WelcomeScreen.routeName)
-                          }
-                      },
-                      child: SvgPicture.asset(
-                        'assets/icons/logo.svg',
-                        semanticsLabel: 'Logo TicTic',
-                        height: MediaQuery.of(context).size.height *
-                            kLogoRatioPercentage,
-                      ),
-                    ),
-                    const SizedBox(height: kVerticalPaddingL),
-                    const Expanded(child: TextSlider()),
-                    const SizedBox(height: kVerticalPaddingL),
-                    const WelcomeNavigation(),
-                  ],
+          child: Padding(
+            padding: const EdgeInsets.only(
+                bottom: kVerticalPaddingL, top: kVerticalPadding * 3),
+            child: Column(
+              children: <Widget>[
+                GestureDetector(
+                  onTap: () => {
+                    if (ModalRoute.of(context)?.settings.name !=
+                        WelcomeScreen.routeName)
+                      {
+                        Navigator.popAndPushNamed(
+                            context, WelcomeScreen.routeName)
+                      }
+                  },
+                  child: SvgPicture.asset(
+                    'assets/icons/logo.svg',
+                    semanticsLabel: 'Logo TicTic',
+                    height: MediaQuery.of(context).size.height *
+                        kLogoRatioPercentage,
+                  ),
                 ),
-              )
-            ],
+                const SizedBox(height: kVerticalPaddingL),
+                const Expanded(child: TextSlider()),
+                const SizedBox(height: kVerticalPaddingL),
+                const WelcomeNavigation(),
+              ],
+            ),
           ),
         ),
       ), // This trailing comma makes auto-formatting nicer for build methods.

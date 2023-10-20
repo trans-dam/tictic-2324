@@ -16,10 +16,10 @@ class RegisterScreen extends StatelessWidget {
   static const String routeName = '/register';
   final _registerFormKey = GlobalKey<FormState>();
 
-  String _firstName = "";
-  String _lastName = "";
-  String _email = "";
-  String _password = "";
+  String _firstName = "Daniel";
+  String _lastName = "Schreurs";
+  String _email = "daniel.schreurs@hotmail.com";
+  String _password = "1234567890";
 
   RegisterScreen({super.key});
 
@@ -38,7 +38,7 @@ class RegisterScreen extends StatelessWidget {
                     hintText: 'Alex',
                     labelText: 'Prénom',
                     keyboardType: TextInputType.name,
-                    initialValue: "Daniel",
+                    initialValue: _firstName,
                     onChanged: (value) {
                       _firstName = value;
                     },
@@ -50,7 +50,7 @@ class RegisterScreen extends StatelessWidget {
                     prefixIcon: Icons.person,
                     hintText: 'Duchant',
                     labelText: 'Nom',
-                    initialValue: "Schreurs",
+                    initialValue: _lastName,
                     onChanged: (value) {
                       _lastName = value;
                     },
@@ -63,7 +63,7 @@ class RegisterScreen extends StatelessWidget {
                   prefixIcon: Icons.mail,
                   hintText: 'exemple@mail.com',
                   labelText: 'Adresse mail',
-                  initialValue: "daniel.schreurs@hotmail.com",
+                  initialValue: _email,
                   keyboardType: TextInputType.emailAddress,
                   onChanged: (value) {
                     _email = value;
@@ -89,7 +89,8 @@ class RegisterScreen extends StatelessWidget {
                                   .then((value) => {
                                         FirebaseFirestore.instance
                                             .collection('users')
-                                            .add({
+                                            .doc(_email)
+                                            .set({
                                           'firstName': _firstName,
                                           'lastName': _lastName,
                                           'email': _email,
