@@ -1,9 +1,9 @@
 import 'dart:math';
 
+import 'package:dto/team.dart';
 import 'package:flutter/material.dart';
 import 'package:tictic/widgets/navigation/home_header.dart';
 
-import '../models/team.dart';
 import '../styles/colors.dart';
 import '../styles/font.dart';
 import '../styles/others.dart';

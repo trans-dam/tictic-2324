@@ -1,8 +1,6 @@
-import 'package:flutter/cupertino.dart';
-import 'package:tictic/models/transaction.dart';
-import 'package:tictic/models/user.dart';
+import 'package:dto/transaction.dart';
+import 'package:dto/user.dart';
 
-@immutable
 class Team {
   final String title;
   final String? picturePath;

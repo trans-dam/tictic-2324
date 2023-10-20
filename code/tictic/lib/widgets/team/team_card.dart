@@ -1,8 +1,8 @@
 import 'dart:math';
 
+import 'package:dto/team.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:tictic/models/team.dart';
 import 'package:tictic/widgets/team/member_count.dart';
 import 'package:tictic/widgets/team/tags.dart';
 

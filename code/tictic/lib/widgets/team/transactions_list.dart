@@ -1,5 +1,6 @@
+import 'package:dto/transaction.dart';
 import 'package:flutter/material.dart';
-import 'package:tictic/models/transaction.dart';
+
 
 import '../../styles/font.dart';
 import '../../styles/spacings.dart';

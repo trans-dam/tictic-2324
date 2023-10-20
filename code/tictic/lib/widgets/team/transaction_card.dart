@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:tictic/models/transaction.dart';
 
+import 'package:dto/transaction.dart';
 import '../../styles/colors.dart';
 import '../../styles/font.dart';
 import '../../styles/others.dart';

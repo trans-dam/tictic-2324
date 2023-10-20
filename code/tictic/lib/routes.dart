@@ -1,5 +1,5 @@
+import 'package:dto/team.dart';
 import 'package:flutter/material.dart';
-import 'package:tictic/models/team.dart';
 import 'package:tictic/screens/home_screen.dart';
 import 'package:tictic/screens/login_screen.dart';
 import 'package:tictic/screens/register_screen.dart';
