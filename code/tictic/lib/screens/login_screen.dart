@@ -1,7 +1,6 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:tictic/screens/form_template_screen.dart';
-import 'package:tictic/screens/home_screen.dart';
 import 'package:tictic/screens/register_screen.dart';
 import 'package:tictic/widgets/form/password_input.dart';
 import 'package:tictic/widgets/form/text_input.dart';
@@ -9,6 +8,7 @@ import 'package:tictic/widgets/form/text_input.dart';
 import '../styles/font.dart';
 import '../styles/spacings.dart';
 import '../widgets/form/main_button.dart';
+import 'home_screen.dart';
 
 @immutable
 class LoginScreen extends StatelessWidget {

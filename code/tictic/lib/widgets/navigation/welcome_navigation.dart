@@ -25,6 +25,7 @@ class WelcomeNavigation extends StatelessWidget {
           child: TextDivider(),
         ),
         SingleChildScrollView(
+          clipBehavior: Clip.none,
           scrollDirection: Axis.horizontal,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
