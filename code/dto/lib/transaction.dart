@@ -18,6 +18,18 @@ class Transaction {
     required this.owner,
     this.concerns = const [],
   });
+
+  factory Transaction.fromJson(Map<String, dynamic> json) {
+    return Transaction(
+      id: json['id'] as String,
+      title: json['title'] as String,
+      description: json['description'] as String?,
+      amount: json['amount'] as double,
+      date: json['date'] as DateTime,
+      owner: User.fromJson(json['owner']),
+      concerns: json['concerns'],
+    );
+  }
 }
 
 List<Transaction> transactionsList = [

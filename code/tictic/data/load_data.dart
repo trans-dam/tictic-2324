@@ -29,17 +29,17 @@ void addTeams() {
       'title': team.title,
       'picturePath': team.picturePath,
       'startDate': team.startDate,
-      'owner': team.owner.email,
+      'owner': team.owner.toJson(),
       'tags': team.tags?.map((e) => e).toList(),
-      'users': team.users.map((e) => e.email).toList(),
+      'users': team.users.map((e) => e.toJson()).toList(),
       'transactions': team.transactions
           ?.map((e) => {
                 'amount': e.amount,
                 'date': e.date,
                 'title': e.title,
                 'description': e.description,
-                'owner': e.owner.email,
-                'to': e.concerns.map((e) => e.email).toList(),
+                'owner': e.owner.toJson(),
+                'to': e.concerns.map((e) => e.toJson()).toList(),
               })
           .toList(),
     });
