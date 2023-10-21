@@ -37,6 +37,14 @@ class _HomeScreenState extends State<HomeScreen> {
               .doc(FirebaseAuth.instance.currentUser!.email)
               .snapshots();
 
+  final Stream<QuerySnapshot> _usersStream = FirebaseFirestore.instance
+      .collection('teams')
+      .withConverter<Team>(
+        fromFirestore: (snapshot, _) => Team.fromJson(snapshot.data()!),
+        toFirestore: (team, _) => team.toJson(),
+      )
+      .snapshots();
+
   final items = [
     'Total à payer',
     'Total à recevoir',
@@ -117,11 +125,24 @@ class _HomeScreenState extends State<HomeScreen> {
             Padding(
               padding: const EdgeInsets.symmetric(
                   horizontal: kHorizontalPadding, vertical: kVerticalPadding),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: teams.map((e) {
-                  return TeamOverview(team: e);
-                }).toList(),
+              child: StreamBuilder<QuerySnapshot>(
+                stream: _usersStream,
+                builder: (BuildContext context,
+                    AsyncSnapshot<QuerySnapshot> snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return const Center(child: CircularProgressIndicator());
+                  }
+                  if (snapshot.hasError) {
+                    return const Text('Oups, une erreur est survenue !');
+                  }
+                  return Column(
+                    children:
+                        snapshot.data!.docs.map((DocumentSnapshot document) {
+                      Team team = document.data()! as Team;
+                      return TeamOverview(team: team);
+                    }).toList(),
+                  );
+                },
               ),
             ),
           ],
@@ -130,3 +151,4 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+//TeamOverview(team: Team.fromJson(data));

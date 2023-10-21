@@ -104,8 +104,7 @@ class RegisterScreen extends StatelessWidget {
                                   .showSnackBar(SnackBar(
                                 showCloseIcon: true,
                                 duration: const Duration(seconds: 10),
-                                // TODO : translate
-                                content: Text(e.code ?? 'Erreur inconnue'),
+                                content: Text(e.message!),
                               ));
                             }
                           }

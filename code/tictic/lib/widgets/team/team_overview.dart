@@ -1,6 +1,7 @@
 import 'package:dto/team.dart';
 import 'package:flutter/material.dart';
 import 'package:tictic/screens/team_screen.dart';
+import 'package:tictic/styles/spacings.dart';
 import 'package:tictic/widgets/team/transactions_list.dart';
 
 import 'team_card.dart';
@@ -24,9 +25,11 @@ class TeamOverview extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           TeamCard(team: team),
-          team.transactions != null
+          team.transactions != null && team.transactions!.isNotEmpty
               ? TransactionList(transactions: team.transactions!)
-              : const SizedBox(),
+              : const SizedBox(
+                  height: kVerticalPaddingXL,
+                ),
         ],
       ),
     );

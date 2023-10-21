@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../styles/font.dart';
 
-
 @immutable
 class Tags extends StatelessWidget {
   const Tags({
@@ -14,9 +13,11 @@ class Tags extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      '#${tags?.join('#') ?? 'Tictic'}',
-      style: kHintStyle,
-    );
+    return tags != null && tags!.isNotEmpty
+        ? Text(
+            '#${tags?.join('#') ?? 'Tictic'}',
+            style: kHintStyle,
+          )
+        : const SizedBox();
   }
 }

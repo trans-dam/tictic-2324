@@ -19,6 +19,39 @@ class Team {
       required this.startDate,
       required this.users});
 
+  factory Team.fromJson(Map<String, dynamic> json) {
+    return Team(
+      title: json['title'],
+      picturePath: json['picturePath'],
+      tags: json['tags'] == null ? [] : json['tags'].cast<String>(),
+      startDate: json['startDate'].toDate(),
+      owner: User.fromJson(json['owner']),
+      users: json['users'].map<User>((user) => User.fromJson(user)).toList(),
+      transactions: json['transactions']
+              ?.map<Transaction>(
+                  (transaction) => Transaction.fromJson(transaction))
+              .toList() ??
+          [],
+    );
+  }
+
+  //json['transactions']
+  //               ?.map((transaction) => Transaction.fromJson(transaction))
+  //               .toList()
+  Map<String, Object?> toJson() {
+    return {
+      'title': title,
+      'picturePath': picturePath,
+      'tags': tags != null ? tags!.toList() : [],
+      'startDate': startDate,
+      'owner': owner.toJson(),
+      'users': users.map((user) => user.toJson()).toList(),
+      'transactions': transactions != null
+          ? transactions?.map((transaction) => transaction.toJson()).toList()
+          : [],
+    };
+  }
+
   getSum() {
     double sum = 0;
     if (transactions != null) {

@@ -1,7 +1,6 @@
 import 'package:dto/user.dart';
 
 class Transaction {
-  final String id;
   final String title;
   final String? description;
   final double amount;
@@ -10,7 +9,6 @@ class Transaction {
   final List<User> concerns;
 
   const Transaction({
-    required this.id,
     required this.title,
     this.description,
     required this.amount,
@@ -21,20 +19,30 @@ class Transaction {
 
   factory Transaction.fromJson(Map<String, dynamic> json) {
     return Transaction(
-      id: json['id'] as String,
-      title: json['title'] as String,
-      description: json['description'] as String?,
-      amount: json['amount'] as double,
-      date: json['date'] as DateTime,
+      title: json['title'],
+      description: json['description'],
+      amount: json['amount'],
+      date: json['date'].toDate(),
       owner: User.fromJson(json['owner']),
-      concerns: json['concerns'],
+      concerns:
+          json['concerns'].map<User>((user) => User.fromJson(user)).toList(),
     );
+  }
+
+  Map<String, Object?> toJson() {
+    return {
+      'title': title,
+      'description': description,
+      'amount': amount,
+      'date': date,
+      'owner': owner.toJson(),
+      'concerns': concerns.map((user) => user.toJson()).toList(),
+    };
   }
 }
 
 List<Transaction> transactionsList = [
   Transaction(
-    id: "1",
     title: "Salle Royale",
     description: "Location pour soirée grandiose",
     amount: 500.0,
@@ -43,7 +51,6 @@ List<Transaction> transactionsList = [
     concerns: [fictiveUsers[0], fictiveUsers[2], fictiveUsers[4]],
   ),
   Transaction(
-    id: "2",
     title: "Dîner Gourmand",
     description: "Traiteur de plaisirs culinaires",
     amount: 300.0,
@@ -52,7 +59,6 @@ List<Transaction> transactionsList = [
     concerns: [fictiveUsers[1], fictiveUsers[3], fictiveUsers[5]],
   ),
   Transaction(
-    id: "3",
     title: "Feux d'Artifice",
     description: "Étincelles dans la nuit",
     amount: 200.0,
@@ -61,7 +67,6 @@ List<Transaction> transactionsList = [
     concerns: [fictiveUsers[0], fictiveUsers[2], fictiveUsers[3]],
   ),
   Transaction(
-    id: "4",
     title: "Robe Étincelante",
     description: "Pour briller sous les projecteurs",
     amount: 150.0,
@@ -70,7 +75,6 @@ List<Transaction> transactionsList = [
     concerns: [fictiveUsers[1], fictiveUsers[3], fictiveUsers[5]],
   ),
   Transaction(
-    id: "5",
     title: "Cours de Danse",
     description: "Pour impressionner sur la piste",
     amount: 80.0,
@@ -79,7 +83,6 @@ List<Transaction> transactionsList = [
     concerns: [fictiveUsers[0], fictiveUsers[2], fictiveUsers[4]],
   ),
   Transaction(
-    id: "6",
     title: "Pansements Ampoules",
     description: "Achats préventifs pour la soirée",
     amount: 20.0,
@@ -88,7 +91,6 @@ List<Transaction> transactionsList = [
     concerns: [fictiveUsers[1], fictiveUsers[3], fictiveUsers[5]],
   ),
   Transaction(
-    id: "7",
     title: "Crampes de Danse",
     description: "Consultation d'urgence",
     amount: 50.0,
@@ -97,7 +99,6 @@ List<Transaction> transactionsList = [
     concerns: [fictiveUsers[0], fictiveUsers[2], fictiveUsers[4]],
   ),
   Transaction(
-    id: "8",
     title: "Talons Impressionnants",
     description: "Achats pour paraître plus grand(e)",
     amount: 75.0,
@@ -106,7 +107,6 @@ List<Transaction> transactionsList = [
     concerns: [fictiveUsers[1], fictiveUsers[3], fictiveUsers[5]],
   ),
   Transaction(
-    id: "9",
     title: "Tapis Rouge",
     description: "Pour entrées spectaculaires",
     amount: 30.0,
@@ -115,7 +115,6 @@ List<Transaction> transactionsList = [
     concerns: [fictiveUsers[0], fictiveUsers[2], fictiveUsers[3]],
   ),
   Transaction(
-    id: "10",
     title: "Piste de Danse VIP",
     description: "Réservation exclusive mondiale",
     amount: 1000.0,
@@ -124,7 +123,6 @@ List<Transaction> transactionsList = [
     concerns: [fictiveUsers[1], fictiveUsers[3], fictiveUsers[5]],
   ),
   Transaction(
-    id: "11",
     title: "Chapeaux Fous",
     description: "Pour suivre le thème de la soirée",
     amount: 45.0,
@@ -133,7 +131,6 @@ List<Transaction> transactionsList = [
     concerns: [fictiveUsers[0], fictiveUsers[2], fictiveUsers[4]],
   ),
   Transaction(
-    id: "12",
     title: "Discours Inspirants",
     description: "Cours intensif pour briller à la tribune",
     amount: 150.0,
@@ -142,7 +139,6 @@ List<Transaction> transactionsList = [
     concerns: [fictiveUsers[1], fictiveUsers[3], fictiveUsers[5]],
   ),
   Transaction(
-    id: "13",
     title: "Feu d'Artifice Précoce",
     description: "Oups, c'était une étincelle accidentelle",
     amount: 15.0,
@@ -151,7 +147,6 @@ List<Transaction> transactionsList = [
     concerns: [fictiveUsers[0], fictiveUsers[2], fictiveUsers[4]],
   ),
   Transaction(
-    id: "14",
     title: "Coach de Selfies",
     description: "Apprenez l'art de la pose parfaite",
     amount: 40.0,
@@ -160,7 +155,6 @@ List<Transaction> transactionsList = [
     concerns: [fictiveUsers[1], fictiveUsers[3], fictiveUsers[5]],
   ),
   Transaction(
-    id: "15",
     title: "Achats de Confettis",
     description: "Pour rendre chaque moment éclatant",
     amount: 10.0,
@@ -169,7 +163,6 @@ List<Transaction> transactionsList = [
     concerns: [fictiveUsers[0], fictiveUsers[2], fictiveUsers[3]],
   ),
   Transaction(
-    id: "16",
     title: "Chauffeur de Limo",
     description: "Arrivez en style... et en retard",
     amount: 200.0,
@@ -178,7 +171,6 @@ List<Transaction> transactionsList = [
     concerns: [fictiveUsers[1], fictiveUsers[3], fictiveUsers[5]],
   ),
   Transaction(
-    id: "17",
     title: "Élégance Extrême",
     description: "Achat de gants blancs assortis",
     amount: 25.0,
@@ -187,7 +179,6 @@ List<Transaction> transactionsList = [
     concerns: [fictiveUsers[0], fictiveUsers[2], fictiveUsers[4]],
   ),
   Transaction(
-    id: "18",
     title: "Cours de Rires Contagieux",
     description: "Fou rire garanti en une leçon",
     amount: 30.0,
@@ -196,7 +187,6 @@ List<Transaction> transactionsList = [
     concerns: [fictiveUsers[1], fictiveUsers[3], fictiveUsers[5]],
   ),
   Transaction(
-    id: "19",
     title: "Micro pour Discours Épiques",
     description: "Se sentir comme un leader inspirant",
     amount: 50.0,
@@ -205,7 +195,6 @@ List<Transaction> transactionsList = [
     concerns: [fictiveUsers[0], fictiveUsers[2], fictiveUsers[4]],
   ),
   Transaction(
-    id: "20",
     title: "Photobooth Fantastique",
     description: "Souvenirs photogéniques garantis",
     amount: 70.0,
