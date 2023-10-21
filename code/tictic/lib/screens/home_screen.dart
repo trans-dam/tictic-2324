@@ -1,5 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dto/team.dart';
+import 'package:dto/user.dart' as dto_user;
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:tictic/widgets/home_title.dart';
 import 'package:tictic/widgets/navigation/home_header.dart';
 import 'package:tictic/widgets/team/team_overview.dart';
 
@@ -10,10 +14,28 @@ import '../widgets/navigation/sidebar.dart';
 import '../widgets/slider/info_slider.dart';
 
 @immutable
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   static const String routeName = '/';
 
-  HomeScreen({super.key});
+  const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  final Stream<DocumentSnapshot<dto_user.User>>? _userStream =
+      FirebaseAuth.instance.currentUser == null
+          ? null
+          : FirebaseFirestore.instance
+              .collection('users')
+              .withConverter<dto_user.User>(
+                fromFirestore: (snapshot, _) =>
+                    dto_user.User.fromJson(snapshot.data()!),
+                toFirestore: (user, _) => user.toJson(),
+              )
+              .doc(FirebaseAuth.instance.currentUser!.email)
+              .snapshots();
 
   final items = [
     'Total à payer',
@@ -23,8 +45,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final scaffoldKey = GlobalKey<
-        ScaffoldState>(); // Il nous faut une référence à notre Scaffold pour pouvoir ouvrir le drawer
+    final scaffoldKey = GlobalKey<ScaffoldState>();
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: kBackgroundColor,
@@ -44,16 +65,28 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(
               height: kVerticalPaddingL,
             ),
-            const Padding(
-              padding: EdgeInsets.only(left: kHorizontalPadding),
+            Padding(
+              padding: const EdgeInsets.only(left: kHorizontalPadding),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text(
-                    'Hey, Daniel !',
-                    style: kTitleHome,
-                    textAlign: TextAlign.left,
-                  ),
+                  FirebaseAuth.instance.currentUser == null
+                      ? const HomeTitle(text: 'Bienvenue !')
+                      : StreamBuilder<DocumentSnapshot<dto_user.User>>(
+                          stream: _userStream,
+                          builder: (BuildContext context,
+                              AsyncSnapshot<DocumentSnapshot<dto_user.User>>
+                                  snapshot) {
+                            if (snapshot.hasError ||
+                                snapshot.connectionState ==
+                                    ConnectionState.waiting) {
+                              return const HomeTitle(text: 'Bienvenue !');
+                            }
+                            return HomeTitle(
+                                text:
+                                    'Hey, ${snapshot.data?.data()!.firstName}!');
+                          },
+                        ),
                 ],
               ),
             ),

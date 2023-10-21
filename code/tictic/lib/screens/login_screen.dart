@@ -1,3 +1,4 @@
+import 'package:dto/user.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,7 @@ import 'home_screen.dart';
 class LoginScreen extends StatelessWidget {
   static const String routeName = '/login';
   final _loginFormKey = GlobalKey<FormState>();
-  String _email = "daniel.schreurs@hotmail.comss";
+  String _email = fictiveUsers[0].email;
   String _password = "1234567890";
 
   LoginScreen({super.key});

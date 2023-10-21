@@ -13,6 +13,14 @@ class User {
       email: json['email'],
     );
   }
+
+  Map<String, Object?> toJson() {
+    return {
+      'firstName': firstName,
+      'lastName': lastName,
+      'email': email,
+    };
+  }
 }
 
 const List<User> fictiveUsers = [
