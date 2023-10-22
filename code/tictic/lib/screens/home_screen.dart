@@ -24,26 +24,44 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final Stream<DocumentSnapshot<dto_user.User>>? _userStream =
-      FirebaseAuth.instance.currentUser == null
-          ? null
-          : FirebaseFirestore.instance
-              .collection('users')
-              .withConverter<dto_user.User>(
-                fromFirestore: (snapshot, _) =>
-                    dto_user.User.fromJson(snapshot.data()!),
-                toFirestore: (user, _) => user.toJson(),
-              )
-              .doc(FirebaseAuth.instance.currentUser!.email)
-              .snapshots();
+  late final Stream<DocumentSnapshot<dto_user.User>>? _userStream;
+  late final Stream<QuerySnapshot>? _teamsStream;
 
-  final Stream<QuerySnapshot> _usersStream = FirebaseFirestore.instance
-      .collection('teams')
-      .withConverter<Team>(
-        fromFirestore: (snapshot, _) => Team.fromJson(snapshot.data()!),
-        toFirestore: (team, _) => team.toJson(),
-      )
-      .snapshots();
+  @override
+  void initState() {
+    super.initState();
+    if (FirebaseAuth.instance.currentUser != null) {
+      _userStream = FirebaseFirestore.instance
+          .collection('users')
+          .withConverter<dto_user.User>(
+            fromFirestore: (snapshot, _) =>
+                dto_user.User.fromJson(snapshot.data()!),
+            toFirestore: (user, _) => user.toJson(),
+          )
+          .doc(FirebaseAuth.instance.currentUser!.email)
+          .snapshots();
+
+      FirebaseFirestore.instance
+          .collection('users')
+          .withConverter<dto_user.User>(
+            fromFirestore: (snapshot, _) =>
+                dto_user.User.fromJson(snapshot.data()!),
+            toFirestore: (user, _) => user.toJson(),
+          )
+          .doc(FirebaseAuth.instance.currentUser!.email)
+          .get()
+          .then((value) => print(value.data()!.teams));
+
+      _teamsStream = FirebaseFirestore.instance
+          .collection('teams')
+          //.where('language', arrayContainsAny: ['en', 'it'])
+          .withConverter<Team>(
+            fromFirestore: (snapshot, _) => Team.fromJson(snapshot.data()!),
+            toFirestore: (team, _) => team.toJson(),
+          )
+          .snapshots();
+    }
+  }
 
   final items = [
     'Total à payer',
@@ -125,25 +143,29 @@ class _HomeScreenState extends State<HomeScreen> {
             Padding(
               padding: const EdgeInsets.symmetric(
                   horizontal: kHorizontalPadding, vertical: kVerticalPadding),
-              child: StreamBuilder<QuerySnapshot>(
-                stream: _usersStream,
-                builder: (BuildContext context,
-                    AsyncSnapshot<QuerySnapshot> snapshot) {
-                  if (snapshot.connectionState == ConnectionState.waiting) {
-                    return const Center(child: CircularProgressIndicator());
-                  }
-                  if (snapshot.hasError) {
-                    return const Text('Oups, une erreur est survenue !');
-                  }
-                  return Column(
-                    children:
-                        snapshot.data!.docs.map((DocumentSnapshot document) {
-                      Team team = document.data()! as Team;
-                      return TeamOverview(team: team);
-                    }).toList(),
-                  );
-                },
-              ),
+              child: FirebaseAuth.instance.currentUser == null
+                  ? const Text('Vous n’êtes pas connecté')
+                  : StreamBuilder<QuerySnapshot>(
+                      stream: _teamsStream,
+                      builder: (BuildContext context,
+                          AsyncSnapshot<QuerySnapshot> snapshot) {
+                        if (snapshot.connectionState ==
+                            ConnectionState.waiting) {
+                          return const Center(
+                              child: CircularProgressIndicator());
+                        }
+                        if (snapshot.hasError) {
+                          return const Text('Oups, une erreur est survenue !');
+                        }
+                        return Column(
+                          children: snapshot.data!.docs
+                              .map((DocumentSnapshot document) {
+                            Team team = document.data()! as Team;
+                            return TeamOverview(team: team);
+                          }).toList(),
+                        );
+                      },
+                    ),
             ),
           ],
         ),
