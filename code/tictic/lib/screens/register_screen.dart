@@ -16,9 +16,9 @@ class RegisterScreen extends StatelessWidget {
   static const String routeName = '/register';
   final _registerFormKey = GlobalKey<FormState>();
 
-  String _firstName = "Daniel";
-  String _lastName = "Schreurs";
-  String _email = "daniel.schreurs@hotmail.com";
+  String _firstName = "Ada";
+  String _lastName = "Lovelace";
+  String _email = "ada@example.com";
   String _password = "1234567890";
 
   RegisterScreen({super.key});
