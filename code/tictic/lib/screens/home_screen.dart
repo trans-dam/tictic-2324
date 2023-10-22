@@ -41,20 +41,10 @@ class _HomeScreenState extends State<HomeScreen> {
           .doc(FirebaseAuth.instance.currentUser!.email)
           .snapshots();
 
-      FirebaseFirestore.instance
-          .collection('users')
-          .withConverter<dto_user.User>(
-            fromFirestore: (snapshot, _) =>
-                dto_user.User.fromJson(snapshot.data()!),
-            toFirestore: (user, _) => user.toJson(),
-          )
-          .doc(FirebaseAuth.instance.currentUser!.email)
-          .get()
-          .then((value) => print(value.data()!.teams));
-
       _teamsStream = FirebaseFirestore.instance
           .collection('teams')
-          //.where('language', arrayContainsAny: ['en', 'it'])
+          .where('users',
+              arrayContains: FirebaseAuth.instance.currentUser!.email)
           .withConverter<Team>(
             fromFirestore: (snapshot, _) => Team.fromJson(snapshot.data()!),
             toFirestore: (team, _) => team.toJson(),

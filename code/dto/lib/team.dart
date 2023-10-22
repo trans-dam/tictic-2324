@@ -5,13 +5,11 @@ class Team {
   final String? picturePath;
   final List<String>? tags;
   final DateTime startDate;
-  final String owner;
   final List<String> users;
   final List<Transaction>? transactions;
 
   const Team(
       {required this.title,
-      required this.owner,
       this.picturePath,
       this.tags,
       this.transactions,
@@ -24,7 +22,6 @@ class Team {
       picturePath: json['picturePath'],
       tags: json['tags'] == null ? [] : json['tags'].cast<String>(),
       startDate: json['startDate'].toDate(),
-      owner: json['owner'],
       users: json['users'] == null ? [] : json['users'].cast<String>(),
       transactions: json['transactions']
               ?.map<Transaction>(
@@ -40,8 +37,7 @@ class Team {
       'picturePath': picturePath,
       'tags': tags != null ? tags!.toList() : [],
       'startDate': startDate,
-      'owner': 'users/$owner',
-      'users': users.map((user) => 'users/$user').toList(),
+      'users': users.map((user) => user).toList(),
       'transactions': transactions != null
           ? transactions?.map((transaction) => transaction.toJson()).toList()
           : [],

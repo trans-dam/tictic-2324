@@ -18,19 +18,7 @@ void main(List<String> arguments) async {
   FirebaseAuth(apiKey, tokenStore);
   FirebaseAuth.initialize(apiKey, tokenStore);
   await addTeams();
-  await addUsers().then((value) {
-    for (User user in users) {
-      final List<String> currentTeamsId = [];
-      for (int i = 0; i < teams.length; i++) {
-        if (teams[i].owner == user.email ||
-            teams[i].users.contains(user.email)) {
-          currentTeamsId.add(teamsId[i]);
-        }
-      }
-      Firestore.instance.collection('users').document(user.email).update(
-          {'teams': currentTeamsId.map((teamId) => 'teams/$teamId').toList()});
-    }
-  });
+  await addUsers();
 
   return null;
 }

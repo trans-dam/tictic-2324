@@ -1,10 +1,12 @@
+import 'package:dto/user.dart';
+
 class Transaction {
   final String title;
   final String? description;
   final double amount;
   final DateTime date;
-  final String owner;
-  final List<String> concerns;
+  final User owner;
+  final List<User> concerns;
 
   const Transaction({
     required this.title,
@@ -21,8 +23,10 @@ class Transaction {
       description: json['description'],
       amount: json['amount'],
       date: json['date'].toDate(),
-      owner: json['owner'],
-      concerns: json['concerns'] == null ? [] : json['concerns'].cast<String>(),
+      owner: User.fromJson(json['owner']),
+      concerns:
+          json['concerns']?.map<User>((user) => User.fromJson(user)).toList() ??
+              [],
     );
   }
 
@@ -32,8 +36,8 @@ class Transaction {
       'description': description,
       'amount': amount,
       'date': date,
-      'owner': 'users/$owner',
-      'concerns': concerns.map((user) => 'users/$user').toList(),
+      'owner': owner.toJson(),
+      'concerns': concerns.map((user) => user.toJson()).toList(),
     };
   }
 }
