@@ -8,8 +8,6 @@ import 'package:load_data_to_firestore/users.dart';
 String pi = PI;
 String apiKey = API_KEY;
 
-List<String> teamsId = [];
-
 void main(List<String> arguments) async {
   Firestore.initialize(pi);
   late TokenStore tokenStore;
@@ -25,9 +23,7 @@ void main(List<String> arguments) async {
 
 Future<void> addTeams() async {
   for (Team team in teams) {
-    Firestore.instance.collection('teams').add(team.toJson()).then((team) {
-      teamsId.add(team.id);
-    });
+    Firestore.instance.collection('teams').add(team.toJson());
   }
 }
 
@@ -37,10 +33,6 @@ Future<void> addUsers() async {
         .collection('users')
         .document(user.email)
         .set(user.toJson());
-    try {
-      await FirebaseAuth.instance.signUp(user.email, '1234567890');
-    } catch (e) {
-      print(e.toString());
-    }
+    await FirebaseAuth.instance.signUp(user.email, '1234567890');
   }
 }

@@ -25,7 +25,9 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   late final Stream<DocumentSnapshot<dto_user.User>>? _userStream;
-  late final Stream<QuerySnapshot>? _teamsStream;
+
+  // TODO check
+  late final Stream<QuerySnapshot<Team>>? _teamsStream;
 
   @override
   void initState() {
@@ -135,10 +137,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   horizontal: kHorizontalPadding, vertical: kVerticalPadding),
               child: FirebaseAuth.instance.currentUser == null
                   ? const Text('Vous n’êtes pas connecté')
-                  : StreamBuilder<QuerySnapshot>(
+                  : StreamBuilder<QuerySnapshot<Team>>(
                       stream: _teamsStream,
                       builder: (BuildContext context,
-                          AsyncSnapshot<QuerySnapshot> snapshot) {
+                          AsyncSnapshot<QuerySnapshot<Team>> snapshot) {
                         if (snapshot.connectionState ==
                             ConnectionState.waiting) {
                           return const Center(

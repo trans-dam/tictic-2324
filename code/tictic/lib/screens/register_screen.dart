@@ -99,6 +99,7 @@ class RegisterScreen extends StatelessWidget {
                                                       HomeScreen.routeName)
                                                 })
                                       });
+                              // TODO manage other errors
                             } on FirebaseAuthException catch (e) {
                               ScaffoldMessenger.of(context)
                                   .showSnackBar(SnackBar(

@@ -90,7 +90,7 @@ class TeamCard extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           MemberCount(
-                            count: team.users.length + 1,
+                            count: team.users.length,
                           ),
                           Text(
                             "Depuis le ${DateFormat.yMd('fr').format(team.startDate)}",
