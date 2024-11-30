@@ -24,10 +24,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  late final Stream<DocumentSnapshot<dto_user.User>>? _userStream;
-
-  // TODO check
-  late final Stream<QuerySnapshot<Team>>? _teamsStream;
+  late final Stream<DocumentSnapshot<dto_user.User>> _userStream;
+  late final Stream<QuerySnapshot<Team>> _teamsStream;
 
   @override
   void initState() {
@@ -35,12 +33,12 @@ class _HomeScreenState extends State<HomeScreen> {
     if (FirebaseAuth.instance.currentUser != null) {
       _userStream = FirebaseFirestore.instance
           .collection('users')
+          .doc(FirebaseAuth.instance.currentUser!.email)
           .withConverter<dto_user.User>(
             fromFirestore: (snapshot, _) =>
                 dto_user.User.fromJson(snapshot.data()!),
             toFirestore: (user, _) => user.toJson(),
           )
-          .doc(FirebaseAuth.instance.currentUser!.email)
           .snapshots();
 
       _teamsStream = FirebaseFirestore.instance

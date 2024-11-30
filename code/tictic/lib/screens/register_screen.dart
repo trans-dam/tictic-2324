@@ -26,102 +26,101 @@ class RegisterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return WelcomeScreenTemplate(
-        flexibleContent: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: kHorizontalPadding),
-          child: Form(
-            key: _registerFormKey,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                TextInput(
-                    prefixIcon: Icons.person,
-                    hintText: 'Alex',
-                    labelText: 'Prénom',
-                    keyboardType: TextInputType.name,
-                    initialValue: _firstName,
-                    onChanged: (value) {
-                      _firstName = value;
-                    },
-                    validator: (value) {
-                      return validateName(value, 'Prénom');
-                    },
-                    tooltipMessage: 'Votre prénom sera visible par vos amis'),
-                TextInput(
-                    prefixIcon: Icons.person,
-                    hintText: 'Duchant',
-                    labelText: 'Nom',
-                    initialValue: _lastName,
-                    onChanged: (value) {
-                      _lastName = value;
-                    },
-                    keyboardType: TextInputType.name,
-                    validator: (value) {
-                      return validateName(value, 'Nom');
-                    },
-                    tooltipMessage: 'Votre nom permet d’éviter les homonymes'),
-                TextInput(
-                  prefixIcon: Icons.mail,
-                  hintText: 'exemple@mail.com',
-                  labelText: 'Adresse mail',
-                  initialValue: _email,
-                  keyboardType: TextInputType.emailAddress,
+      flexibleContent: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: kHorizontalPadding),
+        child: Form(
+          key: _registerFormKey,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              TextInput(
+                  prefixIcon: Icons.person,
+                  hintText: 'Alex',
+                  labelText: 'Prénom',
+                  keyboardType: TextInputType.name,
+                  initialValue: _firstName,
                   onChanged: (value) {
-                    _email = value;
+                    _firstName = value;
                   },
-                  validator: validateEmail,
-                ),
-                PasswordInput(
+                  validator: (value) {
+                    return validateName(value, 'Prénom');
+                  },
+                  tooltipMessage: 'Votre prénom sera visible par vos amis'),
+              TextInput(
+                  prefixIcon: Icons.person,
+                  hintText: 'Duchant',
+                  labelText: 'Nom',
+                  initialValue: _lastName,
                   onChanged: (value) {
-                    _password = value;
+                    _lastName = value;
                   },
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    MainButton(
-                        onPressed: () async {
-                          if (_registerFormKey.currentState != null &&
-                              _registerFormKey.currentState!.validate()) {
-                            try {
-                              await FirebaseAuth.instance
-                                  .createUserWithEmailAndPassword(
-                                      email: _email, password: _password)
-                                  .then((value) => {
-                                        FirebaseFirestore.instance
-                                            .collection('users')
-                                            .doc(_email)
-                                            .set({
-                                          'firstName': _firstName,
-                                          'lastName': _lastName,
-                                          'email': _email,
-                                        }).then((value) => {
-                                                  Navigator.pushNamed(context,
-                                                      HomeScreen.routeName)
-                                                })
-                                      });
-                              // TODO manage other errors
-                            } on FirebaseAuthException catch (e) {
-                              ScaffoldMessenger.of(context)
-                                  .showSnackBar(SnackBar(
-                                showCloseIcon: true,
-                                duration: const Duration(seconds: 10),
-                                content: Text(e.message!),
-                              ));
-                            }
+                  keyboardType: TextInputType.name,
+                  validator: (value) {
+                    return validateName(value, 'Nom');
+                  },
+                  tooltipMessage: 'Votre nom permet d’éviter les homonymes'),
+              TextInput(
+                prefixIcon: Icons.mail,
+                hintText: 'exemple@mail.com',
+                labelText: 'Adresse mail',
+                initialValue: _email,
+                keyboardType: TextInputType.emailAddress,
+                onChanged: (value) {
+                  _email = value;
+                },
+                validator: validateEmail,
+              ),
+              PasswordInput(
+                onChanged: (value) {
+                  _password = value;
+                },
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  MainButton(
+                      onPressed: () async {
+                        if (_registerFormKey.currentState != null &&
+                            _registerFormKey.currentState!.validate()) {
+                          try {
+                            await FirebaseAuth.instance
+                                .createUserWithEmailAndPassword(
+                                    email: _email, password: _password)
+                                .then((value) => {
+                                      FirebaseFirestore.instance
+                                          .collection('users')
+                                          .doc(_email)
+                                          .set({
+                                        'firstName': _firstName,
+                                        'lastName': _lastName,
+                                        'email': _email,
+                                      }).then((value) => {
+                                                Navigator.pushNamed(context,
+                                                    HomeScreen.routeName)
+                                              })
+                                    });
+                            // TODO manage other errors
+                          } on FirebaseAuthException catch (e) {
+                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                              showCloseIcon: true,
+                              duration: const Duration(seconds: 10),
+                              content: Text(e.message!),
+                            ));
                           }
-                        },
-                        text: 'Créer mon compte'),
-                  ],
-                ),
-              ],
-            ),
+                        }
+                      },
+                      text: 'Créer mon compte'),
+                ],
+              ),
+            ],
           ),
         ),
-        shrinkContent: TextButton(
-          onPressed: () =>
-              {Navigator.pushNamed(context, LoginScreen.routeName)},
-          child: const Text('J’ai déjà un compte.\n\nJe me connecte !',
-              textAlign: TextAlign.center, style: kButtonTextStyle),
-        ));
+      ),
+      shrinkContent: TextButton(
+        onPressed: () => {Navigator.pushNamed(context, LoginScreen.routeName)},
+        child: const Text('J’ai déjà un compte.\n\nJe me connecte !',
+            textAlign: TextAlign.center, style: kButtonTextStyle),
+      ),
+    );
   }
 }

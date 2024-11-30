@@ -55,12 +55,10 @@ class InfoSlider extends StatelessWidget {
                   children: [
                     Text(
                       items[index],
-                      textAlign: TextAlign.right,
                       style: kTextSideBar,
                     ),
                     Text(
                       '${Random().nextInt(1000)}€',
-                      textAlign: TextAlign.right,
                       style: kTitleHome,
                     ),
                   ],
